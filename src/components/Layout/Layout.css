@@ -1,0 +1,27 @@
+/* Layout Component Styles */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout__main {
+  flex: 1;
+  width: 100%;
+  padding: var(--spacing-8) 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .layout__main {
+    padding: var(--spacing-6) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout__main {
+    padding: var(--spacing-4) 0;
+  }
+}
+
