@@ -1,67 +1,13 @@
 /**
  * Centralized Style Guide & Theme Configuration
  * 
- * This file contains all design tokens for the website.
+ * This file contains design tokens that are not theme-dependent.
+ * For colors, use CSS variables from global.css which handle light/dark modes.
+ * 
  * All components should reference these values for consistency.
  */
 
 export const theme = {
-  // Color Palette
-  colors: {
-    // Primary colors
-    primary: {
-      main: '#2563eb',      // Blue
-      light: '#60a5fa',
-      dark: '#1e40af',
-      contrast: '#ffffff',
-    },
-    
-    // Secondary colors
-    secondary: {
-      main: '#7c3aed',      // Purple
-      light: '#a78bfa',
-      dark: '#5b21b6',
-      contrast: '#ffffff',
-    },
-    
-    // Neutral colors
-    neutral: {
-      white: '#ffffff',
-      gray100: '#f3f4f6',
-      gray200: '#e5e7eb',
-      gray300: '#d1d5db',
-      gray400: '#9ca3af',
-      gray500: '#6b7280',
-      gray600: '#4b5563',
-      gray700: '#374151',
-      gray800: '#1f2937',
-      gray900: '#111827',
-      black: '#000000',
-    },
-    
-    // Semantic colors
-    success: '#10b981',
-    warning: '#f59e0b',
-    error: '#ef4444',
-    info: '#3b82f6',
-    
-    // Background colors
-    background: {
-      primary: '#ffffff',
-      secondary: '#f9fafb',
-      tertiary: '#f3f4f6',
-      dark: '#111827',
-    },
-    
-    // Text colors
-    text: {
-      primary: '#111827',
-      secondary: '#4b5563',
-      tertiary: '#9ca3af',
-      inverse: '#ffffff',
-    },
-  },
-  
   // Typography
   typography: {
     fontFamily: {
@@ -218,13 +164,6 @@ export const theme = {
 // Type for theme object
 export type Theme = typeof theme;
 
-// Helper function to get nested theme values
-export const getThemeValue = (path: string): string => {
-  return path.split('.').reduce((obj: unknown, key) => {
-    if (obj && typeof obj === 'object' && key in obj) {
-      return (obj as Record<string, unknown>)[key];
-    }
-    return undefined;
-  }, theme as unknown) as string;
-};
-
+// Note: Colors are defined in global.css as CSS variables
+// Use var(--color-*) in your components for theme-aware colors
+// See global.css for the complete list of available color variables

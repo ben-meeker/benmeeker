@@ -6,9 +6,11 @@ A modern, responsive personal website built with React, TypeScript, and Vite. Th
 
 - **Modern Tech Stack**: Built with React 19, TypeScript, and Vite for fast development and optimal performance
 - **Centralized Style Guide**: Comprehensive design system with consistent theming across all components
-- **Responsive Design**: Mobile-first approach ensuring great experience on all devices
+- **Light & Dark Mode**: Full theme switching support with system preference detection
+- **Mobile-First Responsive Design**: Optimized for mobile devices first, then enhanced for tablets and desktops
 - **Type-Safe**: Full TypeScript support for better development experience and fewer bugs
 - **Component Library**: Reusable components following the style guide
+- **Tested**: Vitest setup with example tests and coverage reporting
 - **Three Main Sections**:
   - **Home**: Landing page with introduction and call-to-actions
   - **Library**: Curated collection of books and resources
@@ -54,6 +56,28 @@ The project uses a centralized style guide located in `src/styles/`. All compone
 - **Accessibility**: WCAG 2.1 AA compliance
 
 See `src/styles/README.md` for detailed documentation.
+
+## 📱 Mobile-First Responsive Design
+
+All styles are written mobile-first using `min-width` media queries:
+- **Base styles**: Mobile phones (320px+)
+- **768px+**: Tablets and larger
+- **1024px+**: Desktops and larger
+
+This ensures optimal performance on mobile devices and progressive enhancement for larger screens. See `MOBILE_FIRST.md` for detailed guidelines.
+
+## 🌗 Light & Dark Mode
+
+Full theme switching support with three modes:
+- **Light Mode**: Clean, bright interface
+- **Dark Mode**: Eye-friendly dark interface
+- **System Mode**: Automatically follows OS preference (default)
+
+The theme preference is persisted in localStorage and smoothly animated. See `DARK_MODE.md` for complete documentation on:
+- Using the `useTheme()` hook
+- Customizing colors for both modes
+- Testing components with themes
+- Best practices for theme-aware styling
 
 ## 🛠️ Tech Stack
 

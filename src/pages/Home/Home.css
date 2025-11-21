@@ -1,12 +1,12 @@
-/* Home Page Styles */
+/* Home Page Styles - Mobile First */
 
 .home {
   width: 100%;
 }
 
-/* Hero Section */
+/* Hero Section - Mobile Base */
 .home__hero {
-  padding: var(--spacing-16) 0;
+  padding: var(--spacing-8) 0;
   background: linear-gradient(
     135deg,
     var(--color-bg-primary) 0%,
@@ -21,7 +21,7 @@
 }
 
 .home__title {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 800;
   margin-bottom: var(--spacing-6);
   line-height: 1.1;
@@ -39,14 +39,14 @@
 }
 
 .home__subtitle {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-4);
   font-weight: 500;
 }
 
 .home__description {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-8);
   line-height: 1.7;
@@ -56,23 +56,23 @@
   display: flex;
   gap: var(--spacing-4);
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-/* About Section */
+/* About Section - Mobile Base */
 .home__about {
-  padding: var(--spacing-16) 0;
+  padding: var(--spacing-12) 0;
 }
 
 .home__section-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-12);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-8);
 }
 
 .home__cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-6);
 }
 
@@ -87,9 +87,9 @@
   line-height: 1.6;
 }
 
-/* CTA Section */
+/* CTA Section - Mobile Base */
 .home__cta-section {
-  padding: var(--spacing-16) 0;
+  padding: var(--spacing-12) 0;
   background-color: var(--color-bg-secondary);
 }
 
@@ -110,8 +110,8 @@
   margin-bottom: var(--spacing-6);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Tablet and up - Progressive Enhancement */
+@media (min-width: 768px) {
   .home__hero {
     padding: var(--spacing-12) 0;
   }
@@ -124,39 +124,40 @@
     font-size: 1.25rem;
   }
 
+  .home__cta {
+    flex-direction: row;
+  }
+
+  .home__cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .home__hero {
+    padding: var(--spacing-16) 0;
+  }
+
+  .home__title {
+    font-size: 3.5rem;
+  }
+
+  .home__subtitle {
+    font-size: 1.5rem;
+  }
+
   .home__description {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   .home__about,
   .home__cta-section {
-    padding: var(--spacing-12) 0;
+    padding: var(--spacing-16) 0;
   }
 
   .home__section-title {
-    font-size: 2rem;
-  }
-
-  .home__cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .home__hero {
-    padding: var(--spacing-8) 0;
-  }
-
-  .home__title {
-    font-size: 2rem;
-  }
-
-  .home__subtitle {
-    font-size: 1.125rem;
-  }
-
-  .home__cta {
-    flex-direction: column;
+    font-size: 2.5rem;
   }
 }
 

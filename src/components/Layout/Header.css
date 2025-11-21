@@ -1,20 +1,20 @@
-/* Header Component Styles */
+/* Header Component Styles - Mobile First */
 
 .header {
   position: sticky;
   top: 0;
-  z-index: var(--zIndex-sticky, 1020);
+  z-index: 1020;
   background-color: var(--color-bg-primary);
-  border-bottom: 1px solid var(--color-neutral-gray-200);
+  border-bottom: 1px solid var(--color-border-primary);
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.95);
 }
 
+/* Mobile Base */
 .header__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4rem;
+  height: 3.5rem;
   padding-top: var(--spacing-4);
   padding-bottom: var(--spacing-4);
 }
@@ -25,7 +25,7 @@
   text-decoration: none;
   color: var(--color-text-primary);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1rem;
   transition: color var(--transition-base) ease;
 }
 
@@ -37,6 +37,12 @@
   letter-spacing: -0.025em;
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
 .header__nav {
   display: flex;
   align-items: center;
@@ -44,7 +50,7 @@
 
 .header__nav-list {
   display: flex;
-  gap: var(--spacing-2);
+  gap: 0;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -58,11 +64,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: var(--spacing-2) var(--spacing-4);
+  padding: var(--spacing-2);
   color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   border-radius: var(--radius-md);
   transition: all var(--transition-base) ease;
 }
@@ -74,8 +80,7 @@
 
 .header__nav-link--active {
   color: var(--color-primary-main);
-  background-color: var(--color-primary-main);
-  background-color: rgba(37, 99, 235, 0.1);
+  background-color: var(--color-bg-tertiary);
 }
 
 .header__nav-link--active::after {
@@ -89,33 +94,43 @@
   background-color: var(--color-primary-main);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Tablet and up - Progressive Enhancement */
+@media (min-width: 768px) {
   .header__container {
-    height: 3.5rem;
+    height: 3.75rem;
   }
 
-  .header__logo-text {
+  .header__logo {
     font-size: 1.125rem;
   }
 
   .header__nav-list {
-    gap: 0;
+    gap: var(--spacing-1);
   }
 
   .header__nav-link {
     padding: var(--spacing-2) var(--spacing-3);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
 }
 
-@media (max-width: 480px) {
-  .header__logo-text {
-    font-size: 1rem;
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .header__container {
+    height: 4rem;
+  }
+
+  .header__logo {
+    font-size: 1.25rem;
+  }
+
+  .header__nav-list {
+    gap: var(--spacing-2);
   }
 
   .header__nav-link {
-    padding: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-4);
   }
 }
+
 

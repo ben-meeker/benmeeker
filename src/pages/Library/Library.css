@@ -1,23 +1,23 @@
-/* Library Page Styles */
+/* Library Page Styles - Mobile First */
 
 .library {
   width: 100%;
-  padding: var(--spacing-8) 0;
+  padding: var(--spacing-6) 0;
 }
 
 .library__header {
   text-align: center;
   max-width: 48rem;
-  margin: 0 auto var(--spacing-12);
+  margin: 0 auto var(--spacing-8);
 }
 
 .library__title {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: var(--spacing-4);
 }
 
 .library__description {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
@@ -46,7 +46,7 @@
 .library__filter:hover {
   border-color: var(--color-primary-main);
   color: var(--color-primary-main);
-  background-color: rgba(37, 99, 235, 0.05);
+  background-color: var(--color-bg-tertiary);
 }
 
 .library__filter--active {
@@ -55,10 +55,10 @@
   border-color: var(--color-primary-main);
 }
 
-/* Grid */
+/* Grid - Mobile Base */
 .library__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-6);
 }
 
@@ -71,8 +71,7 @@
 .library__item-category {
   display: inline-block;
   padding: var(--spacing-1) var(--spacing-3);
-  background-color: var(--color-primary-main);
-  background-color: rgba(37, 99, 235, 0.1);
+  background-color: var(--color-bg-tertiary);
   color: var(--color-primary-main);
   font-size: 0.75rem;
   font-weight: 600;
@@ -104,10 +103,10 @@
   margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Tablet and up - Progressive Enhancement */
+@media (min-width: 768px) {
   .library {
-    padding: var(--spacing-6) 0;
+    padding: var(--spacing-8) 0;
   }
 
   .library__title {
@@ -115,30 +114,22 @@
   }
 
   .library__header {
-    margin-bottom: var(--spacing-8);
-  }
-
-  .library__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .library__title {
-    font-size: 2rem;
+    margin-bottom: var(--spacing-12);
   }
 
   .library__description {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
-  .library__filters {
-    gap: var(--spacing-2);
+  .library__grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
+}
 
-  .library__filter {
-    font-size: 0.875rem;
-    padding: var(--spacing-2) var(--spacing-3);
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .library__title {
+    font-size: 3rem;
   }
 }
 
