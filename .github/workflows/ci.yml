@@ -12,6 +12,9 @@ permissions:
   contents: read
   packages: read
 
+env:
+  NODE_NO_WARNINGS: 1
+
 jobs:
   lint:
     runs-on: ubuntu-latest

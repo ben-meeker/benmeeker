@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "NODE_NO_WARNINGS=1 vite",
+    "build": "NODE_NO_WARNINGS=1 tsc -b && NODE_NO_WARNINGS=1 vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage"
+    "preview": "NODE_NO_WARNINGS=1 vite preview",
+    "test": "NODE_NO_WARNINGS=1 vitest",
+    "test:ui": "NODE_NO_WARNINGS=1 vitest --ui",
+    "test:coverage": "NODE_NO_WARNINGS=1 vitest run --coverage"
   },
   "dependencies": {
     "react": "^19.2.0",
