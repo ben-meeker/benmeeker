@@ -1,5 +1,4 @@
 import React from 'react';
-import { theme } from '../../styles/theme';
 import './Button.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

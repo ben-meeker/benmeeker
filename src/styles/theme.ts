@@ -220,6 +220,11 @@ export type Theme = typeof theme;
 
 // Helper function to get nested theme values
 export const getThemeValue = (path: string): string => {
-  return path.split('.').reduce((obj: any, key) => obj?.[key], theme);
+  return path.split('.').reduce((obj: unknown, key) => {
+    if (obj && typeof obj === 'object' && key in obj) {
+      return (obj as Record<string, unknown>)[key];
+    }
+    return undefined;
+  }, theme as unknown) as string;
 };
 

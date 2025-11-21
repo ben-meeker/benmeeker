@@ -5,8 +5,9 @@ import App from './App';
 describe('App', () => {
   it('renders without crashing', () => {
     render(<App />);
-    // Check if the app renders with the header
-    expect(screen.getByText('Ben Meeker')).toBeInTheDocument();
+    // Check if the app renders with navigation
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getAllByText('Ben Meeker').length).toBeGreaterThan(0);
   });
 });
 
