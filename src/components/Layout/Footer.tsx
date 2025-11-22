@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
           
           <div className="footer__links">
             <a
-              href="https://github.com/benmeeker"
+              href="https://github.com/ben-meeker"
               target="_blank"
               rel="noopener noreferrer"
               className="footer__link"
@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/benmeeker"
+              href="https://www.linkedin.com/in/ben-meeker-5059ab161"
               target="_blank"
               rel="noopener noreferrer"
               className="footer__link"
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               LinkedIn
             </a>
             <a
-              href="mailto:contact@benmeeker.com"
+              href="mailto:ben@meekers.org"
               className="footer__link"
               aria-label="Email"
             >

@@ -43,19 +43,23 @@ benmeeker/
 └── README.md
 ```
 
-## 🎨 Style Guide
+## 🎨 Style Guide & Color Palette
 
-The project uses a centralized style guide located in `src/styles/`. All components reference these design tokens for consistency.
+The project uses a centralized style guide with an **earthy, industrial aesthetic** inspired by:
+- **Black Walnut** wood (#4e342e)
+- **Forest Green** (#2d5016)  
+- **Concrete** and charcoal tones
+- **Matte, industrial** textures
 
 ### Key Features:
-- **Colors**: Primary, secondary, neutral, and semantic colors
-- **Typography**: Font families, sizes, weights, and spacing
+- **Colors**: Forest greens, walnut browns, concrete grays, deep charcoals
+- **Typography**: Inter for UI, JetBrains Mono for code
 - **Spacing**: 4px-based spacing scale
 - **Components**: Pre-styled, reusable components
 - **Responsive**: Built-in breakpoints for all screen sizes
-- **Accessibility**: WCAG 2.1 AA compliance
+- **Accessibility**: WCAG 2.1 AA+ compliance (tested contrast ratios)
 
-See `src/styles/README.md` for detailed documentation.
+See `COLOR_PALETTE.md` for the complete color system and `src/styles/README.md` for implementation details.
 
 ## 📱 Mobile-First Responsive Design
 

@@ -12,12 +12,53 @@
     var(--color-bg-primary) 0%,
     var(--color-bg-secondary) 100%
   );
+  position: relative;
+  overflow: hidden;
 }
 
 .home__hero-content {
   max-width: 48rem;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Company Logos Marquee */
+.home__companies {
+  margin-top: 3rem;
+  padding-top: 0;
+}
+
+.home__companies-label {
+  text-align: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+/* Cutout images anchored to sections - Mobile First */
+.home__section-decoration {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  opacity: 1;
+  filter: grayscale(50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home__section-decoration--about {
+  left: 0;
+  bottom: 0;
+}
+
+.home__section-decoration--cta {
+  right: 0;
+  bottom: 0;
 }
 
 .home__title {
@@ -30,8 +71,8 @@
 .home__title-highlight {
   background: linear-gradient(
     135deg,
-    var(--color-primary-main),
-    var(--color-secondary-main)
+    var(--color-primary-dark),
+    var(--color-primary-light)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -62,6 +103,8 @@
 /* About Section - Mobile Base */
 .home__about {
   padding: var(--spacing-12) 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .home__section-title {
@@ -91,6 +134,8 @@
 .home__cta-section {
   padding: var(--spacing-12) 0;
   background-color: var(--color-bg-secondary);
+  position: relative;
+  overflow: hidden;
 }
 
 .home__cta-content {
@@ -108,6 +153,30 @@
   font-size: 1.125rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-6);
+}
+
+/* Photo Gallery Section */
+.home__gallery {
+  padding: var(--spacing-12) 0;
+}
+
+.home__gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+
+.home__gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-base) ease, box-shadow var(--transition-base) ease;
+}
+
+.home__gallery-image:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
 }
 
 /* Tablet and up - Progressive Enhancement */
@@ -131,6 +200,21 @@
   .home__cards {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
+  
+  /* Larger on tablet+ */
+  .home__section-decoration {
+    width: 120px;
+    opacity: 1;
+  }
+  
+  .home__section-decoration--about {
+    left: 10px;
+  }
+  
+  .home__section-decoration--cta {
+    right: 10px;
+    left: auto;
+  }
 }
 
 /* Desktop and up */
@@ -151,6 +235,7 @@
     font-size: 1.125rem;
   }
 
+
   .home__about,
   .home__cta-section {
     padding: var(--spacing-16) 0;
@@ -159,5 +244,28 @@
   .home__section-title {
     font-size: 2.5rem;
   }
+  
+  /* Full size on desktop */
+  .home__section-decoration {
+    width: 180px;
+    opacity: 1;
+    filter: grayscale(40%);
+  }
+  
+  .home__section-decoration--about {
+    left: 40px;
+  }
+  
+  .home__section-decoration--cta {
+    right: 40px;
+    left: auto;
+  }
+  
+  /* Gallery grid for desktop */
+  .home__gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+
+/* No animations - images sit still */
 

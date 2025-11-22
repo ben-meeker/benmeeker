@@ -2,6 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
+import { LogoMarquee } from '../../components/LogoMarquee';
+import benYoungImg from '../../assets/benyoung.png';
+import benOldImg from '../../assets/benold.png';
+import marleysImg from '../../assets/marleys.png';
+import jiffylubeImg from '../../assets/jiffylube.png';
+import namifyImg from '../../assets/namify.png';
+import axomoImg from '../../assets/axomo.png';
+import waffleloveImg from '../../assets/wafflelove.png';
+import aptiveImg from '../../assets/aptive.png';
+import dormyImg from '../../assets/dormy.png';
 import './Home.css';
 
 export const Home: React.FC = () => {
@@ -14,71 +24,118 @@ export const Home: React.FC = () => {
               Hi, I'm <span className="home__title-highlight">Ben Meeker</span>
             </h1>
             <p className="home__subtitle">
-              Software Engineer, Builder, and Lifelong Learner
+              IT Operations · Software Development · Platform Engineering
             </p>
             <p className="home__description">
-              Welcome to my personal website. I build innovative solutions, explore new
-              technologies, and share my journey through code and ideas.
+              Welcome to my website! I love building innovative, scalable solutions to any and every problem! I am also passionate about technology and leadership, and building teams that elevate businesses.
             </p>
             
             <div className="home__cta">
               <Link to="/projects">
-                <Button size="lg" variant="primary">
-                  View My Projects
+                <Button size="lg" variant="outline">
+                  Explore Projects
                 </Button>
               </Link>
               <Link to="/library">
                 <Button size="lg" variant="outline">
-                  Explore Library
+                  My Library
+                </Button>
+              </Link>
+              <Link to="/resume">
+                <Button size="lg" variant="outline">
+                  View Resume
                 </Button>
               </Link>
             </div>
           </div>
         </div>
+        
+        {/* Company Logos Marquee */}
+        <div className="home__companies">
+          <div className="container">
+            <p className="home__companies-label">Trusted by</p>
+          </div>
+          <LogoMarquee
+            logos={[
+              { src: marleysImg, alt: "Marley's Gourmet Sliders" },
+              { src: jiffylubeImg, alt: "Jiffy Lube" },
+              { src: namifyImg, alt: "Namify" },
+              { src: axomoImg, alt: "Axomo" },
+              { src: waffleloveImg, alt: "Waffle Love" },
+              { src: aptiveImg, alt: "Aptive" },
+              { src: dormyImg, alt: "Dormy" },
+            ]}
+          />
+        </div>
       </section>
 
       <section className="home__about">
+        {/* Cutout image anchored to this section */}
+        <img 
+          src={benYoungImg} 
+          alt="" 
+          className="home__section-decoration home__section-decoration--about"
+          aria-hidden="true"
+        />
         <div className="container">
           <h2 className="home__section-title">About Me</h2>
           <div className="home__cards">
             <Card variant="elevated" padding="lg">
-              <h3 className="home__card-title">💻 Developer</h3>
+              <h3 className="home__card-title">💻 Builder</h3>
               <p className="home__card-text">
-                Passionate about creating elegant solutions to complex problems.
-                Experienced in modern web technologies and always learning.
+                I love bringing ideas to life, and coming up with creative and innovative solutions! The satisfaction that comes from building something that makes a real impact a high that I constantly chase!
               </p>
             </Card>
 
             <Card variant="elevated" padding="lg">
-              <h3 className="home__card-title">🚀 Builder</h3>
+              <h3 className="home__card-title">🚀 Doer</h3>
               <p className="home__card-text">
-                I love bringing ideas to life. From concept to deployment, I enjoy
-                every step of the creative process.
+                I'm not limited to my technical skills, and I'm able to learn new products and processes extremely quickly! Whatever needs to get done, it will get handled!
               </p>
             </Card>
 
             <Card variant="elevated" padding="lg">
               <h3 className="home__card-title">📚 Learner</h3>
               <p className="home__card-text">
-                Continuously exploring new technologies and approaches. Knowledge
-                sharing and documentation are key to growth.
+                Much to my own dismay, I am unable to shake my interest in the world and all of it's amazing opportunities! I am literally interested in everything. Ask my wife!
               </p>
             </Card>
           </div>
         </div>
       </section>
 
+      {/* Photo Gallery Section - Add your images with backgrounds here */}
+      {/* Uncomment when you upload images to public/ folder */}
+      {/* 
+      <section className="home__gallery">
+        <div className="container">
+          <h2 className="home__section-title">Snapshots</h2>
+          <div className="home__gallery-grid">
+            <img src="/photo1.jpg" alt="Description" className="home__gallery-image" />
+            <img src="/photo2.jpg" alt="Description" className="home__gallery-image" />
+            <img src="/photo3.jpg" alt="Description" className="home__gallery-image" />
+          </div>
+        </div>
+      </section>
+      */}
+
       <section className="home__cta-section">
+        {/* Cutout image anchored to this section */}
+        <img 
+          src={benOldImg} 
+          alt="" 
+          className="home__section-decoration home__section-decoration--cta"
+          aria-hidden="true"
+        />
         <div className="container">
           <Card variant="elevated" padding="lg">
             <div className="home__cta-content">
               <h2>Let's Work Together</h2>
               <p>
-                Interested in collaborating or have a project in mind? I'd love to hear
-                from you.
+                Want me to work for you? Want to work for me? Want to talk about life and all of it's amazing-ness?
               </p>
               <Button size="lg" variant="primary">
-                Get In Touch
+                Contact Me!
               </Button>
             </div>
           </Card>

@@ -3,6 +3,7 @@ import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { Library } from './pages/Library';
 import { Projects } from './pages/Projects';
+import { Resume } from './pages/Resume';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<Library />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </Layout>
     </Router>
