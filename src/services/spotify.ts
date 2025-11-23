@@ -207,7 +207,7 @@ class SpotifyService {
 
       if (!response.ok) {
         if (response.status === 404) {
-          throw new Error('No active device. Please wait for the player to initialize.');
+          throw new Error('No active device found. Please open the Spotify app on your device and start playing any song, then try again.');
         }
         if (response.status === 403) {
           throw new Error('Spotify Premium required for playback control');

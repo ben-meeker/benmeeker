@@ -7,6 +7,8 @@ export const SpotifyAuthNotification: React.FC = () => {
   const [isDismissed, setIsDismissed] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   if (isAuthenticated || isDismissed) {
     return null;
   }
@@ -30,8 +32,12 @@ export const SpotifyAuthNotification: React.FC = () => {
         </div>
         
         <div className="spotify-auth-notification__text">
-          <div className="spotify-auth-notification__title">Stream Songs</div>
-          <div className="spotify-auth-notification__subtitle">Connect your account</div>
+          <div className="spotify-auth-notification__title">
+            {isMobile ? 'Spotify App Required' : 'Stream Songs'}
+          </div>
+          <div className="spotify-auth-notification__subtitle">
+            {isMobile ? 'Open Spotify app to play' : 'Connect your account'}
+          </div>
         </div>
 
         <button 

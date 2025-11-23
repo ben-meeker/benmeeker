@@ -56,6 +56,9 @@ export const SpotifyProvider: React.FC<SpotifyProviderProps> = ({ children }) =>
   const [playOrder, setPlayOrder] = useState<number[]>([]);
 
   useEffect(() => {
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     // Check if there's a callback in the URL and handle it
     const handleAuth = async () => {
       const hasCallback = await spotifyService.handleCallback();
@@ -63,7 +66,8 @@ export const SpotifyProvider: React.FC<SpotifyProviderProps> = ({ children }) =>
       
       setIsAuthenticated(isAuth);
 
-      if (hasCallback || isAuth) {
+      // Only initialize Web Playback SDK on desktop
+      if ((hasCallback || isAuth) && !isMobile) {
         // Initialize Web Playback SDK player
         const token = spotifyService.getAccessToken();
         if (token) {
@@ -87,6 +91,10 @@ export const SpotifyProvider: React.FC<SpotifyProviderProps> = ({ children }) =>
             console.error('Failed to initialize player:', error);
           }
         }
+      } else if (isAuth && isMobile) {
+        // On mobile, mark as ready without Web Playback SDK
+        // User will control playback through their Spotify app
+        setIsPlayerReady(true);
       }
     };
     

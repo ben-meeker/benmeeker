@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { MonthlyPlaylist } from '../../components/MonthlyPlaylist';
 import { SpotifyAuthNotification } from '../../components/SpotifyAuthNotification';
+import { MobilePlaybackInfo } from '../../components/MobilePlaybackInfo';
+import { useSpotify } from '../../hooks/useSpotify';
 import { historicalJams } from '../../data/historicalJams';
 import './HistoricalJams.css';
 
 export const HistoricalJams: React.FC = () => {
+  const { isAuthenticated } = useSpotify();
   const [searchQuery, setSearchQuery] = useState('');
+  
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
   // Sort playlists from newest to oldest
   const sortedPlaylists = [...historicalJams].reverse();
@@ -46,6 +51,7 @@ export const HistoricalJams: React.FC = () => {
   return (
     <div className="historical-jams">
       <SpotifyAuthNotification />
+      {isMobile && isAuthenticated && <MobilePlaybackInfo />}
       
       <section className="historical-jams__hero">
         <div className="container">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpotify } from '../../hooks/useSpotify';
 import { webPlaybackPlayer } from '../../services/webPlaybackPlayer';
+import { spotifyService } from '../../services/spotify';
 import './PlaybackBar.css';
 
 export const PlaybackBar: React.FC = () => {
@@ -38,9 +39,36 @@ export const PlaybackBar: React.FC = () => {
             // Get initial position
             setProgress(state.position || 0);
             startTimeRef.current = Date.now() - (state.position || 0);
+          } else {
+            // Fallback for mobile - search for track to get duration
+            const track = await spotifyService.searchTrack(currentSong.name, currentSong.artist);
+            if (track?.duration_ms) {
+              setDuration(track.duration_ms);
+              setProgress(0);
+              startTimeRef.current = Date.now();
+            } else {
+              // Last resort fallback
+              setDuration(180000);
+              setProgress(0);
+              startTimeRef.current = Date.now();
+            }
           }
         } catch (error) {
           console.error('Error getting duration:', error);
+          // Try to get duration from search
+          try {
+            const track = await spotifyService.searchTrack(currentSong.name, currentSong.artist);
+            if (track?.duration_ms) {
+              setDuration(track.duration_ms);
+              setProgress(0);
+              startTimeRef.current = Date.now();
+            }
+          } catch (searchError) {
+            console.error('Error searching for track:', searchError);
+            setDuration(180000);
+            setProgress(0);
+            startTimeRef.current = Date.now();
+          }
         }
       } else {
         setDuration(0);
@@ -105,6 +133,14 @@ export const PlaybackBar: React.FC = () => {
   };
 
   const handleProgressMouseUp = async (e: React.MouseEvent<HTMLInputElement>) => {
+    setIsDragging(false);
+    const newProgress = parseInt((e.target as HTMLInputElement).value, 10);
+    await seekToPosition(newProgress);
+    // Reset the timer to the new position
+    startTimeRef.current = Date.now() - newProgress;
+  };
+
+  const handleProgressTouchEnd = async (e: React.TouchEvent<HTMLInputElement>) => {
     setIsDragging(false);
     const newProgress = parseInt((e.target as HTMLInputElement).value, 10);
     await seekToPosition(newProgress);
@@ -204,6 +240,8 @@ export const PlaybackBar: React.FC = () => {
                 onChange={handleProgressChange}
                 onMouseDown={handleProgressMouseDown}
                 onMouseUp={handleProgressMouseUp}
+                onTouchStart={handleProgressMouseDown}
+                onTouchEnd={handleProgressTouchEnd}
                 className="playback-bar__progress"
                 aria-label="Seek position"
               />

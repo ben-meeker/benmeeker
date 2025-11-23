@@ -7,9 +7,23 @@ export class WebPlaybackPlayer {
   private isReady: boolean = false;
 
   /**
+   * Check if device is mobile
+   */
+  private isMobile(): boolean {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  /**
    * Initialize and connect the Web Playback SDK player
+   * Note: Web Playback SDK only works on desktop browsers
    */
   async initialize(accessToken: string): Promise<string | null> {
+    // Web Playback SDK doesn't work on mobile - skip initialization
+    if (this.isMobile()) {
+      console.warn('Spotify Web Playback SDK is not supported on mobile devices. Please use the Spotify app.');
+      return null;
+    }
+
     return new Promise((resolve, reject) => {
       // Wait for Spotify SDK to be loaded
       if (!window.Spotify) {
