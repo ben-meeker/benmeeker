@@ -2,6 +2,7 @@
 
 .historical-jams {
   width: 100%;
+  padding-bottom: 120px; /* Space for playback bar */
 }
 
 /* Hero Section - Mobile Base */
@@ -36,9 +37,75 @@
   margin-bottom: var(--spacing-6);
 }
 
+/* Search Box - Mobile Base */
+.historical-jams__search {
+  position: relative;
+  max-width: 500px;
+  margin: var(--spacing-6) auto 0;
+}
+
+.historical-jams__search-input {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  padding-right: var(--spacing-10);
+  font-size: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.historical-jams__search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha);
+}
+
+.historical-jams__search-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.historical-jams__search-clear {
+  position: absolute;
+  right: var(--spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-bg-secondary);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.historical-jams__search-clear:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+.historical-jams__no-results {
+  text-align: center;
+  padding: var(--spacing-12) var(--spacing-4);
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+}
+
 /* Content Section */
 .historical-jams__content {
-  padding: var(--spacing-8) 0;
+  padding: var(--spacing-10) 0 var(--spacing-16);
+}
+
+.historical-jams__playlists {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
 }
 
 /* Tablet and up */
@@ -54,16 +121,32 @@
   .historical-jams__subtitle {
     font-size: 1.125rem;
   }
+
+  .historical-jams__playlists {
+    gap: var(--spacing-8);
+  }
 }
 
 /* Desktop and up */
 @media (min-width: 1024px) {
+  .historical-jams__hero {
+    padding: var(--spacing-12) 0;
+  }
+
   .historical-jams__title {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
   }
 
   .historical-jams__subtitle {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
+  }
+
+  .historical-jams__content {
+    padding: var(--spacing-12) 0 var(--spacing-24);
+  }
+
+  .historical-jams__playlists {
+    gap: var(--spacing-10);
   }
 }
 

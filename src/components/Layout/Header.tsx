@@ -18,7 +18,6 @@ export const Header: React.FC = () => {
     <header className="header">
       <div className="header__container container">
         <Link to="/" className="header__logo">
-          <span className="header__logo-text">Ben Meeker</span>
         </Link>
 
         <div className="header__actions">

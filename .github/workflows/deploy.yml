@@ -29,6 +29,9 @@ jobs:
         run: npm ci
       - name: Build site
         run: npm run build
+        env:
+          VITE_SPOTIFY_CLIENT_ID: 05e483c8eb9747b3b20deb38faa32dde
+          VITE_SPOTIFY_REDIRECT_URI: https://benmeeker.com/historical-jams
       - name: Deploy to Cloudflare Pages using Wrangler
         uses: cloudflare/wrangler-action@v3
         with:

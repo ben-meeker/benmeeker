@@ -11,10 +11,11 @@ A modern, responsive personal website built with React, TypeScript, and Vite. Th
 - **Type-Safe**: Full TypeScript support for better development experience and fewer bugs
 - **Component Library**: Reusable components following the style guide
 - **Tested**: Vitest setup with example tests and coverage reporting
-- **Three Main Sections**:
+- **Four Main Sections**:
   - **Home**: Landing page with introduction and call-to-actions
   - **Library**: Curated collection of books and resources
   - **Projects**: Showcase of work and achievements
+  - **Historical Jams**: Monthly playlists with Spotify integration
 
 ## 📁 Project Structure
 
@@ -111,12 +112,22 @@ cd benmeeker
 npm install
 ```
 
-3. Start the development server:
+3. (Optional) Set up Spotify API for Historical Jams:
+   - Create a Spotify Developer account at https://developer.spotify.com/dashboard
+   - Create a new app and get your Client ID
+   - Add `http://localhost:5173/historical-jams` to your Redirect URIs
+   - Create a `.env` file in the root directory:
+   ```bash
+   VITE_SPOTIFY_CLIENT_ID=your_client_id_here
+   VITE_SPOTIFY_REDIRECT_URI=http://localhost:5173/historical-jams
+   ```
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open your browser and visit `http://localhost:5173`
+5. Open your browser and visit `http://localhost:5173`
 
 ## 🔨 Available Scripts
 

@@ -1,0 +1,176 @@
+/* Monthly Playlist Component - Mobile First */
+.monthly-playlist {
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-border-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.monthly-playlist:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.monthly-playlist--expanded {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.monthly-playlist__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.monthly-playlist__header:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .monthly-playlist__header:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.monthly-playlist__title-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.monthly-playlist__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark),
+    var(--color-primary-light)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.01em;
+}
+
+.monthly-playlist__count {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.monthly-playlist__toggle {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-md);
+}
+
+[data-theme="dark"] .monthly-playlist__toggle {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.monthly-playlist__toggle:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.monthly-playlist--expanded .monthly-playlist__toggle {
+  transform: rotate(180deg);
+}
+
+.monthly-playlist--expanded .monthly-playlist__toggle:hover {
+  transform: rotate(180deg) scale(1.05);
+}
+
+.monthly-playlist__toggle-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.monthly-playlist__content {
+  padding: 0 var(--spacing-4) var(--spacing-4);
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.monthly-playlist__songs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  background-color: transparent;
+  border-radius: var(--radius-md);
+  padding: 0;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .monthly-playlist__header {
+    padding: var(--spacing-5);
+  }
+
+  .monthly-playlist__title {
+    font-size: 1.25rem;
+  }
+
+  .monthly-playlist__count {
+    font-size: 0.8125rem;
+  }
+
+  .monthly-playlist__content {
+    padding: 0 var(--spacing-5) var(--spacing-5);
+  }
+
+  .monthly-playlist__toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .monthly-playlist__toggle-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .monthly-playlist__header {
+    padding: var(--spacing-6);
+  }
+
+  .monthly-playlist__title {
+    font-size: 1.5rem;
+  }
+
+  .monthly-playlist__content {
+    padding: 0 var(--spacing-6) var(--spacing-6);
+  }
+}
+

@@ -141,9 +141,11 @@ export const Home: React.FC = () => {
                 <p>
                   Want me to work for you? Want to work for me? Want to talk about life and all of it's amazing-ness?
                 </p>
-                <Button size="lg" variant="primary">
-                  Contact Me!
-                </Button>
+                <a href="mailto:ben@meekers.org">
+                  <Button size="lg" variant="primary">
+                    Contact Me!
+                  </Button>
+                </a>
               </div>
             </Card>
           </div>
