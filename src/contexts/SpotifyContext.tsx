@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { spotifyService } from '../services/spotify';
 import { webPlaybackPlayer } from '../services/webPlaybackPlayer';
@@ -37,15 +37,8 @@ interface SpotifyContextType {
   seekToPosition: (positionMs: number) => Promise<void>;
 }
 
-const SpotifyContext = createContext<SpotifyContextType | undefined>(undefined);
-
-export const useSpotify = () => {
-  const context = useContext(SpotifyContext);
-  if (!context) {
-    throw new Error('useSpotify must be used within SpotifyProvider');
-  }
-  return context;
-};
+// eslint-disable-next-line react-refresh/only-export-components
+export const SpotifyContext = createContext<SpotifyContextType | undefined>(undefined);
 
 interface SpotifyProviderProps {
   children: ReactNode;
@@ -83,7 +76,7 @@ export const SpotifyProvider: React.FC<SpotifyProviderProps> = ({ children }) =>
               // Listen to player state changes
               const player = webPlaybackPlayer.getPlayer();
               if (player) {
-                player.addListener('player_state_changed', (state: any) => {
+                player.addListener('player_state_changed', (state: Spotify.PlaybackState | null) => {
                   if (state) {
                     setIsPlaying(!state.paused);
                   }

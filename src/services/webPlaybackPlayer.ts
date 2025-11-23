@@ -30,7 +30,7 @@ export class WebPlaybackPlayer {
   private createPlayer(
     accessToken: string,
     resolve: (deviceId: string | null) => void,
-    reject: (error: any) => void
+    reject: (error: Error) => void
   ) {
     this.player = new window.Spotify!.Player({
       name: 'Historical Jams Web Player',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSpotify } from '../../contexts/SpotifyContext';
+import { useSpotify } from '../../hooks/useSpotify';
 import { webPlaybackPlayer } from '../../services/webPlaybackPlayer';
 import './PlaybackBar.css';
 

@@ -274,7 +274,7 @@ class SpotifyService {
   /**
    * Get the current playback state
    */
-  async getCurrentPlayback(): Promise<any> {
+  async getCurrentPlayback(): Promise<unknown> {
     if (!this.isAuthenticated()) {
       throw new Error('Not authenticated');
     }

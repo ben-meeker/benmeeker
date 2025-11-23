@@ -2,16 +2,28 @@
 
 interface Window {
   onSpotifyWebPlaybackSDKReady?: () => void;
-  Spotify?: typeof Spotify;
+  Spotify?: {
+    Player: Spotify.PlayerConstructor;
+  };
 }
 
 declare namespace Spotify {
-  interface Player {
+  interface PlayerOptions {
+    name: string;
+    getOAuthToken: (cb: (token: string) => void) => void;
+    volume?: number;
+    enableMediaSession?: boolean;
+  }
+
+  interface PlayerConstructor {
     new (options: PlayerOptions): Player;
+  }
+
+  interface Player {
     connect(): Promise<boolean>;
     disconnect(): void;
-    addListener(event: string, callback: (data: any) => void): boolean;
-    removeListener(event: string, callback?: (data: any) => void): boolean;
+    addListener(event: string, callback: (data: unknown) => void): boolean;
+    removeListener(event: string, callback?: (data: unknown) => void): boolean;
     getCurrentState(): Promise<PlaybackState | null>;
     setName(name: string): Promise<void>;
     getVolume(): Promise<number>;
@@ -25,17 +37,10 @@ declare namespace Spotify {
     activateElement(): Promise<void>;
   }
 
-  interface PlayerOptions {
-    name: string;
-    getOAuthToken: (cb: (token: string) => void) => void;
-    volume?: number;
-    enableMediaSession?: boolean;
-  }
-
   interface PlaybackState {
     context: {
       uri: string | null;
-      metadata: any;
+      metadata: Record<string, unknown>;
     };
     disallows: {
       pausing?: boolean;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSpotify } from '../../contexts/SpotifyContext';
+import { useSpotify } from '../../hooks/useSpotify';
 import { spotifyService } from '../../services/spotify';
 import type { Song, MonthlyPlaylist } from '../../data/historicalJams';
 import './SongItem.css';
@@ -54,8 +54,8 @@ export const SongItem: React.FC<SongItemProps> = ({ song, index, playlist }) => 
       if (uri) {
         await playTrack(uri, index);
       }
-    } catch (err: any) {
-      setError(err.message || 'Failed to play track');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to play track');
     } finally {
       setIsSearching(false);
     }

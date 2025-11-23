@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSpotify } from '../../contexts/SpotifyContext';
+import { useSpotify } from '../../hooks/useSpotify';
 import './SpotifyAuthNotification.css';
 
 export const SpotifyAuthNotification: React.FC = () => {
@@ -14,8 +14,8 @@ export const SpotifyAuthNotification: React.FC = () => {
   const handleConnect = () => {
     try {
       login();
-    } catch (err: any) {
-      setError(err.message || 'Failed to connect to Spotify');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to connect to Spotify');
       console.error('Spotify connection error:', err);
     }
   };

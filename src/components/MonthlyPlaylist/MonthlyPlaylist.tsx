@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { MonthlyPlaylist as MonthlyPlaylistType } from '../../data/historicalJams';
 import { SongItem } from '../SongItem';
-import { useSpotify } from '../../contexts/SpotifyContext';
+import { useSpotify } from '../../hooks/useSpotify';
 import './MonthlyPlaylist.css';
 
 interface MonthlyPlaylistProps {
