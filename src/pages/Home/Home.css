@@ -17,7 +17,7 @@
 }
 
 .home__hero-content {
-  max-width: 48rem;
+  max-width: 38rem;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -57,7 +57,7 @@
 }
 
 .home__section-decoration--cta {
-  right: 0;
+  left: 0;
   bottom: 0;
 }
 
@@ -102,7 +102,7 @@
 
 /* About Section - Mobile Base */
 .home__about {
-  padding: var(--spacing-12) 0;
+  padding: var(--spacing-8) 0;
   position: relative;
   overflow: hidden;
 }
@@ -120,39 +120,62 @@
 }
 
 .home__card-title {
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-4);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-2);
 }
 
 .home__card-text {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
 /* CTA Section - Mobile Base */
 .home__cta-section {
-  padding: var(--spacing-12) 0;
+  padding: var(--spacing-8) 0;
   background-color: var(--color-bg-secondary);
   position: relative;
   overflow: hidden;
 }
 
+.home__cta-card-wrapper {
+  position: relative;
+}
+
 .home__cta-content {
   text-align: center;
-  max-width: 40rem;
+  max-width: 32rem;
   margin: 0 auto;
 }
 
+.home__cta-image {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  filter: grayscale(40%);
+  left: var(--spacing-4);
+  bottom: 0;
+  z-index: 1;
+}
+
 .home__cta-content h2 {
-  font-size: 2rem;
-  margin-bottom: var(--spacing-4);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-3);
 }
 
 .home__cta-content p {
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+}
+
+/* Desktop - larger image */
+@media (min-width: 768px) {
+  .home__cta-image {
+    width: 120px;
+    left: var(--spacing-6);
+    bottom: 0;
+  }
 }
 
 /* Photo Gallery Section */
@@ -182,15 +205,15 @@
 /* Tablet and up - Progressive Enhancement */
 @media (min-width: 768px) {
   .home__hero {
-    padding: var(--spacing-12) 0;
+    padding: var(--spacing-10) 0;
   }
 
   .home__title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .home__subtitle {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 
   .home__cta {
@@ -209,40 +232,41 @@
   
   .home__section-decoration--about {
     left: 10px;
+    bottom: 10px;
   }
   
   .home__section-decoration--cta {
-    right: 10px;
-    left: auto;
+    left: 10px;
+    bottom: 10px;
   }
 }
 
 /* Desktop and up */
 @media (min-width: 1024px) {
   .home__hero {
-    padding: var(--spacing-16) 0;
+    padding: var(--spacing-8) 0;
   }
 
   .home__title {
-    font-size: 3.5rem;
+    font-size: 2.25rem;
   }
 
   .home__subtitle {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
   }
 
   .home__description {
-    font-size: 1.125rem;
+    font-size: 0.9375rem;
   }
 
 
   .home__about,
   .home__cta-section {
-    padding: var(--spacing-16) 0;
+    padding: var(--spacing-8) 0;
   }
 
   .home__section-title {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
   }
   
   /* Full size on desktop */
@@ -254,11 +278,12 @@
   
   .home__section-decoration--about {
     left: 40px;
+    bottom: 20px;
   }
   
   .home__section-decoration--cta {
-    right: 40px;
-    left: auto;
+    left: 40px;
+    bottom: 20px;
   }
   
   /* Gallery grid for desktop */

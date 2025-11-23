@@ -10,6 +10,8 @@ export const Header: React.FC = () => {
     { path: '/', label: 'Home' },
     { path: '/library', label: 'Library' },
     { path: '/projects', label: 'Projects' },
+    { path: '/historical-jams', label: 'Jams' },
+    { path: '/resume', label: 'Resume' },
   ];
 
   return (

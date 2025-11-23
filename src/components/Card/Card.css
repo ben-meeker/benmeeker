@@ -55,3 +55,18 @@
   }
 }
 
+/* Desktop - reduce padding slightly */
+@media (min-width: 1024px) {
+  .card--padding-sm {
+    padding: var(--spacing-2);
+  }
+  
+  .card--padding-md {
+    padding: var(--spacing-3);
+  }
+  
+  .card--padding-lg {
+    padding: var(--spacing-4);
+  }
+}
+

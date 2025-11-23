@@ -1,0 +1,69 @@
+/* Historical Jams Page Styles - Mobile First */
+
+.historical-jams {
+  width: 100%;
+}
+
+/* Hero Section - Mobile Base */
+.historical-jams__hero {
+  padding: var(--spacing-8) 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-secondary) 100%
+  );
+  text-align: center;
+}
+
+.historical-jams__title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-4);
+  line-height: 1.1;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark),
+    var(--color-primary-light)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.historical-jams__subtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-6);
+}
+
+/* Content Section */
+.historical-jams__content {
+  padding: var(--spacing-8) 0;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .historical-jams__hero {
+    padding: var(--spacing-10) 0;
+  }
+
+  .historical-jams__title {
+    font-size: 2.25rem;
+  }
+
+  .historical-jams__subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .historical-jams__title {
+    font-size: 2.25rem;
+  }
+
+  .historical-jams__subtitle {
+    font-size: 1.125rem;
+  }
+}
+

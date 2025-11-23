@@ -4,7 +4,6 @@ import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { LogoMarquee } from '../../components/LogoMarquee';
 import benYoungImg from '../../assets/benyoung.png';
-import benOldImg from '../../assets/benold.png';
 import marleysImg from '../../assets/marleys.png';
 import jiffylubeImg from '../../assets/jiffylube.png';
 import namifyImg from '../../assets/namify.png';
@@ -12,6 +11,11 @@ import axomoImg from '../../assets/axomo.png';
 import waffleloveImg from '../../assets/wafflelove.png';
 import aptiveImg from '../../assets/aptive.png';
 import dormyImg from '../../assets/dormy.png';
+import utahhomeelectricImg from '../../assets/utahhomeelectric.png';
+import servicenowImg from '../../assets/servicenow.png';
+import allamericangymnasticsImg from '../../assets/allamericangymnastics.png';
+import wendysImg from '../../assets/wendys.png';
+import upsImg from '../../assets/ups.png';
 import './Home.css';
 
 export const Home: React.FC = () => {
@@ -41,6 +45,11 @@ export const Home: React.FC = () => {
                   My Library
                 </Button>
               </Link>
+              <Link to="/historical-jams">
+                <Button size="lg" variant="outline">
+                  Historical Jams
+                </Button>
+              </Link>
               <Link to="/resume">
                 <Button size="lg" variant="outline">
                   View Resume
@@ -59,24 +68,22 @@ export const Home: React.FC = () => {
             logos={[
               { src: marleysImg, alt: "Marley's Gourmet Sliders" },
               { src: jiffylubeImg, alt: "Jiffy Lube" },
+              { src: allamericangymnasticsImg, alt: "All American Gymnastics" },
+              { src: wendysImg, alt: "Wendy's" },
               { src: namifyImg, alt: "Namify" },
+              { src: upsImg, alt: "UPS" },
               { src: axomoImg, alt: "Axomo" },
               { src: waffleloveImg, alt: "Waffle Love" },
               { src: aptiveImg, alt: "Aptive" },
               { src: dormyImg, alt: "Dormy" },
+              { src: utahhomeelectricImg, alt: "Utah Home Electric" },
+              { src: servicenowImg, alt: "ServiceNow" },
             ]}
           />
         </div>
       </section>
 
       <section className="home__about">
-        {/* Cutout image anchored to this section */}
-        <img 
-          src={benYoungImg} 
-          alt="" 
-          className="home__section-decoration home__section-decoration--about"
-          aria-hidden="true"
-        />
         <div className="container">
           <h2 className="home__section-title">About Me</h2>
           <div className="home__cards">
@@ -120,25 +127,26 @@ export const Home: React.FC = () => {
       */}
 
       <section className="home__cta-section">
-        {/* Cutout image anchored to this section */}
-        <img 
-          src={benOldImg} 
-          alt="" 
-          className="home__section-decoration home__section-decoration--cta"
-          aria-hidden="true"
-        />
         <div className="container">
-          <Card variant="elevated" padding="lg">
-            <div className="home__cta-content">
-              <h2>Let's Work Together</h2>
-              <p>
-                Want me to work for you? Want to work for me? Want to talk about life and all of it's amazing-ness?
-              </p>
-              <Button size="lg" variant="primary">
-                Contact Me!
-              </Button>
-            </div>
-          </Card>
+          <div className="home__cta-card-wrapper">
+            <Card variant="elevated" padding="lg">
+              <img 
+                src={benYoungImg} 
+                alt="" 
+                className="home__cta-image"
+                aria-hidden="true"
+              />
+              <div className="home__cta-content">
+                <h2>Let's Work Together</h2>
+                <p>
+                  Want me to work for you? Want to work for me? Want to talk about life and all of it's amazing-ness?
+                </p>
+                <Button size="lg" variant="primary">
+                  Contact Me!
+                </Button>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
     </div>

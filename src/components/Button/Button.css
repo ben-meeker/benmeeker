@@ -85,8 +85,8 @@
 }
 
 .btn--lg {
-  padding: var(--spacing-4) var(--spacing-8);
-  font-size: 1.125rem;
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: 1rem;
   line-height: 1.5;
 }
 
