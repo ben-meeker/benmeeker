@@ -160,7 +160,8 @@
   }
 
   .spotify-auth-notification__content {
-    padding: var(--spacing-5) var(--spacing-6);
+    padding: var(--spacing-4) var(--spacing-6);
+    gap: var(--spacing-4);
   }
 
   .spotify-auth-notification__text {

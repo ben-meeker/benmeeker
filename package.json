@@ -13,8 +13,10 @@
     "test:coverage": "NODE_NO_WARNINGS=1 vitest run --coverage"
   },
   "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.80",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-pdf": "^10.2.0",
     "react-router-dom": "^7.9.6"
   },
   "devDependencies": {

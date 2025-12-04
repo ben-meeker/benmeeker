@@ -29,11 +29,45 @@
   gap: var(--spacing-6);
 }
 
+/* Project Card */
+.projects__card {
+  position: relative;
+  overflow: hidden;
+}
+
 /* Project Item */
 .projects__item {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Preview Image - corner thumbnail */
+.projects__item-preview {
+  position: absolute;
+  bottom: var(--spacing-4);
+  right: var(--spacing-4);
+  width: 120px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.projects__item-preview img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-border-secondary);
+}
+
+.projects__card:hover .projects__item-preview {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .projects__item-title {
@@ -106,6 +140,10 @@
 
   .projects__item-actions {
     flex-direction: row;
+  }
+
+  .projects__item-preview {
+    width: 160px;
   }
 }
 

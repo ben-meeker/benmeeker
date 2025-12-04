@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { LogoMarquee } from '../../components/LogoMarquee';
+import { AiChat } from '../../components/AiChat';
 import benYoungImg from '../../assets/benyoung.png';
 import marleysImg from '../../assets/marleys.png';
 import jiffylubeImg from '../../assets/jiffylube.png';
@@ -83,6 +84,18 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      <section className="home__chat">
+        <div className="container">
+          <h2 className="home__section-title">Chat with my AI twin!</h2>
+          <p className="home__chat-intro">
+            Hi, I run entirely in your browser!
+          </p>
+          <div className="home__chat-wrapper">
+            <AiChat />
+          </div>
+        </div>
+      </section>
+
       <section className="home__about">
         <div className="container">
           <h2 className="home__section-title">About Me</h2>
@@ -139,7 +152,7 @@ export const Home: React.FC = () => {
               <div className="home__cta-content">
                 <h2>Let's Work Together</h2>
                 <p>
-                  Want me to work for you? Want to work for me? Want to talk about life and all of it's amazing-ness?
+                  Want me to work for you? Want to work for me? Just need someone to talk to?
                 </p>
                 <a href="mailto:ben@meekers.org">
                   <Button size="lg" variant="primary">

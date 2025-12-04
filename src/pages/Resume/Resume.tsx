@@ -1,103 +1,62 @@
-import React from 'react';
-import { Card } from '../../components/Card';
+import React, { useState } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import { Button } from '../../components/Button';
+import resumePdf from '../../assets/resume.pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 import './Resume.css';
 
+// Set up PDF.js worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
 export const Resume: React.FC = () => {
+  const [numPages, setNumPages] = useState<number | null>(null);
+
+  const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
+    setNumPages(numPages);
+  };
+
   return (
     <div className="resume">
       <div className="container">
         <div className="resume__header">
-          <h1 className="resume__title">Ben Meeker</h1>
-          <p className="resume__subtitle">Software Engineer · Platform Engineering · IT Operations</p>
+          <h1 className="resume__title">Resume</h1>
+          <p className="resume__subtitle">Ben Meeker · Software Engineer · Platform Engineering · IT Operations</p>
+          <div className="resume__actions">
+            <a href={resumePdf} download="Ben_Meeker_Resume.pdf">
+              <Button variant="primary" size="lg">
+                Download PDF
+              </Button>
+            </a>
+            <a href={resumePdf} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="lg">
+                Open in New Tab
+              </Button>
+            </a>
+          </div>
         </div>
 
-        {/* Experience Section */}
-        <section className="resume__section">
-          <h2 className="resume__section-title">Experience</h2>
-          <Card variant="elevated" padding="lg">
-            <div className="resume__entry">
-              <h3 className="resume__entry-title">Your Current/Recent Role</h3>
-              <p className="resume__entry-meta">Company Name · Date Range</p>
-              <ul className="resume__entry-list">
-                <li>Key achievement or responsibility</li>
-                <li>Another important contribution</li>
-                <li>Technical accomplishment</li>
-              </ul>
-            </div>
-          </Card>
-
-          <Card variant="elevated" padding="lg">
-            <div className="resume__entry">
-              <h3 className="resume__entry-title">Previous Role</h3>
-              <p className="resume__entry-meta">Company Name · Date Range</p>
-              <ul className="resume__entry-list">
-                <li>Key achievement or responsibility</li>
-                <li>Another important contribution</li>
-                <li>Technical accomplishment</li>
-              </ul>
-            </div>
-          </Card>
-        </section>
-
-        {/* Education Section */}
-        <section className="resume__section">
-          <h2 className="resume__section-title">Education</h2>
-          <Card variant="elevated" padding="lg">
-            <div className="resume__entry">
-              <h3 className="resume__entry-title">Degree & Field of Study</h3>
-              <p className="resume__entry-meta">University Name · Graduation Year</p>
-            </div>
-          </Card>
-        </section>
-
-        {/* Skills Section */}
-        <section className="resume__section">
-          <h2 className="resume__section-title">Skills</h2>
-          <div className="resume__skills-grid">
-            <Card variant="elevated" padding="md">
-              <h3 className="resume__skills-category">Languages</h3>
-              <div className="resume__skills-list">
-                <span className="resume__skill-tag">JavaScript</span>
-                <span className="resume__skill-tag">TypeScript</span>
-                <span className="resume__skill-tag">Python</span>
-                <span className="resume__skill-tag">Go</span>
-              </div>
-            </Card>
-
-            <Card variant="elevated" padding="md">
-              <h3 className="resume__skills-category">Frameworks</h3>
-              <div className="resume__skills-list">
-                <span className="resume__skill-tag">React</span>
-                <span className="resume__skill-tag">Node.js</span>
-                <span className="resume__skill-tag">Express</span>
-                <span className="resume__skill-tag">Next.js</span>
-              </div>
-            </Card>
-
-            <Card variant="elevated" padding="md">
-              <h3 className="resume__skills-category">Tools & Platforms</h3>
-              <div className="resume__skills-list">
-                <span className="resume__skill-tag">Docker</span>
-                <span className="resume__skill-tag">Kubernetes</span>
-                <span className="resume__skill-tag">AWS</span>
-                <span className="resume__skill-tag">Git</span>
-              </div>
-            </Card>
-          </div>
-        </section>
-
-        {/* Certifications/Awards Section */}
-        <section className="resume__section">
-          <h2 className="resume__section-title">Certifications & Awards</h2>
-          <Card variant="elevated" padding="lg">
-            <div className="resume__entry">
-              <h3 className="resume__entry-title">Certification Name</h3>
-              <p className="resume__entry-meta">Issuing Organization · Year</p>
-            </div>
-          </Card>
-        </section>
+        <div className="resume__document">
+          <Document
+            file={resumePdf}
+            onLoadSuccess={onDocumentLoadSuccess}
+            loading={<div className="resume__loading">Loading resume...</div>}
+            error={<div className="resume__error">Failed to load PDF. Please use the download button above.</div>}
+          >
+            {numPages &&
+              Array.from(new Array(numPages), (_, index) => (
+                <Page
+                  key={`page_${index + 1}`}
+                  pageNumber={index + 1}
+                  className="resume__page"
+                  renderTextLayer={true}
+                  renderAnnotationLayer={true}
+                  width={undefined}
+                />
+              ))}
+          </Document>
+        </div>
       </div>
     </div>
   );
 };
-

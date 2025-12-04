@@ -13,3 +13,5 @@ export type { CardProps } from './Card';
 
 export { ThemeToggle } from './ThemeToggle';
 
+export { AiChat } from './AiChat';
+

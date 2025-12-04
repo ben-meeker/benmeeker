@@ -97,6 +97,20 @@ class SpotifyService {
   async handleCallback(): Promise<boolean> {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
+    const error = urlParams.get('error');
+    
+    // Check if user denied access
+    if (error) {
+      console.error('Spotify auth error:', error);
+      if (error === 'access_denied') {
+        alert('Spotify access was denied. Please try again and click "Agree" to connect your account.');
+      } else {
+        alert(`Spotify authentication error: ${error}`);
+      }
+      // Clean up URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+      return false;
+    }
     
     if (!code) return false;
 
@@ -123,7 +137,15 @@ class SpotifyService {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to exchange code for token');
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error || 'Failed to exchange code for token';
+        
+        // Check for common errors
+        if (errorMessage === 'invalid_grant') {
+          throw new Error('SPOTIFY_USER_NOT_ALLOWED: This user is not authorized to use this app. The app owner needs to add you to the allowlist in the Spotify Developer Dashboard.');
+        }
+        
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();
@@ -145,6 +167,15 @@ class SpotifyService {
       }
     } catch (error) {
       console.error('Error exchanging code for token:', error);
+      
+      // Show user-friendly error message
+      if (error instanceof Error) {
+        if (error.message.includes('SPOTIFY_USER_NOT_ALLOWED')) {
+          alert('⚠️ Spotify Access Denied\n\nYou are not authorized to use this app yet. Please contact the app owner to be added to the user allowlist in the Spotify Developer Dashboard.\n\nNote: Spotify apps in Development Mode can only be used by users explicitly added by the app owner.');
+        } else {
+          alert(`Failed to connect to Spotify: ${error.message}`);
+        }
+      }
       localStorage.removeItem('code_verifier');
     }
 

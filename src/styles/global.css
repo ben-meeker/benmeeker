@@ -110,10 +110,10 @@
 
 /* CSS Variables - Dark Mode (Industrial/Charcoal Theme) */
 [data-theme="dark"] {
-  /* Colors - Primary (Sage Green for contrast) */
-  --color-primary-main: #7a9b5a;
-  --color-primary-light: #98b878;
-  --color-primary-dark: #5d7a3d;
+  /* Colors - Primary (Muted Emerald for contrast) */
+  --color-primary-main: #4ebb8b;
+  --color-primary-light: #6fcfa3;
+  --color-primary-dark: #3a9a72;
   --color-primary-contrast: #1c1917;
   
   /* Colors - Secondary (Warm Walnut) */
@@ -136,7 +136,7 @@
   --color-neutral-black: #fafaf9;
   
   /* Colors - Semantic (Muted earth tones) */
-  --color-success: #7a9b5a;  /* Sage green */
+  --color-success: #4ebb8b;  /* Muted emerald */
   --color-warning: #d97706;  /* Amber */
   --color-error: #dc2626;    /* Red */
   --color-info: #0d9488;     /* Teal */
@@ -164,10 +164,10 @@
 /* Respect system preference if no theme is set */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    /* Colors - Primary */
-    --color-primary-main: #7a9b5a;
-    --color-primary-light: #98b878;
-    --color-primary-dark: #5d7a3d;
+    /* Colors - Primary (Muted Emerald) */
+    --color-primary-main: #4ebb8b;
+    --color-primary-light: #6fcfa3;
+    --color-primary-dark: #3a9a72;
     --color-primary-contrast: #1c1917;
     
     /* Colors - Secondary */
@@ -190,7 +190,7 @@
     --color-neutral-black: #fafaf9;
     
     /* Colors - Semantic */
-    --color-success: #7a9b5a;
+    --color-success: #4ebb8b;
     --color-warning: #d97706;
     --color-error: #dc2626;
     --color-info: #0d9488;
