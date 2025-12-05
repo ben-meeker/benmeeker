@@ -10,6 +10,12 @@ interface Message {
   content: string;
 }
 
+// Detect mobile devices
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+    (window.innerWidth <= 768);
+};
+
 export const AiChat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -19,11 +25,15 @@ export const AiChat: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [engine, setEngine] = useState<webllm.MLCEngineInterface | null>(null);
   const [hasWebGPU, setHasWebGPU] = useState<boolean | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Check for WebGPU support
+  // Check for mobile and WebGPU support
   useEffect(() => {
+    // Check mobile first
+    setIsMobile(isMobileDevice());
+
     const checkWebGPU = async () => {
       try {
         if (!navigator.gpu) {
@@ -120,6 +130,27 @@ export const AiChat: React.FC = () => {
       sendMessage();
     }
   };
+
+  // Render mobile device message
+  if (isMobile) {
+    return (
+      <Card variant="elevated" padding="lg">
+        <div className="ai-chat__unsupported">
+          <img src="/benmeeker.png" alt="Ben Meeker" className="ai-chat__activate-avatar" />
+          <p className="ai-chat__unsupported-title">
+            Desktop Recommended
+          </p>
+          <p className="ai-chat__unsupported-text">
+            The AI chat runs a full language model in your browser, which needs more power than most phones can handle. 
+            Try it on a desktop or laptop for the best experience!
+          </p>
+          <p className="ai-chat__unsupported-alt">
+            On mobile? Feel free to <a href="mailto:ben@meekers.org">email me directly</a> — I'd love to hear from you!
+          </p>
+        </div>
+      </Card>
+    );
+  }
 
   // Render WebGPU not supported message
   if (hasWebGPU === false) {

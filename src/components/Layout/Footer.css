@@ -44,6 +44,15 @@
   color: var(--color-primary-main);
 }
 
+/* Cryptic easter egg link */
+.footer__link--cryptic {
+  font-family: var(--font-mono);
+}
+
+.footer__link--cryptic:hover {
+  color: var(--color-error);
+}
+
 /* Responsive Design */
 @media (min-width: 768px) {
   .footer__content {

@@ -62,9 +62,6 @@ export const Home: React.FC = () => {
         
         {/* Company Logos Marquee */}
         <div className="home__companies">
-          <div className="container">
-            <p className="home__companies-label">Trusted by</p>
-          </div>
           <LogoMarquee
             logos={[
               { src: marleysImg, alt: "Marley's Gourmet Sliders" },

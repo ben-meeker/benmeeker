@@ -80,7 +80,7 @@ export const NotFound: React.FC = () => {
   const [gameOver, setGameOver] = useState(false);
   const codeRef = useRef<HTMLDivElement>(null);
   const nextId = useRef(0);
-  const spawnRate = useRef(2000);
+  const spawnRate = useRef(1200);
 
   // Get 404 position
   const getTargetPosition = useCallback(() => {
@@ -208,7 +208,7 @@ export const NotFound: React.FC = () => {
         x,
         y,
         char: Math.random() > 0.5 ? '1' : '0',
-        speed: 0.5 + Math.random() * 1,
+        speed: 1.2 + Math.random() * 1.3,
         angle,
       };
 
@@ -217,8 +217,8 @@ export const NotFound: React.FC = () => {
 
     const interval = setInterval(spawnInvader, spawnRate.current);
     const speedUp = setInterval(() => {
-      spawnRate.current = Math.max(300, spawnRate.current - 100);
-    }, 3000);
+      spawnRate.current = Math.max(150, spawnRate.current - 200);
+    }, 1500);
 
     return () => {
       clearInterval(interval);
@@ -245,7 +245,7 @@ export const NotFound: React.FC = () => {
     setDamage(0);
     setScore(0);
     setInvaders([]);
-    spawnRate.current = 2000;
+    spawnRate.current = 1200;
   };
 
   return (
