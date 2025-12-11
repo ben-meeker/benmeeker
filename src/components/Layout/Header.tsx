@@ -16,11 +16,6 @@ export const Header: React.FC = () => {
     { path: '/references', label: 'References' },
   ];
 
-  // Close menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
-
   // Close menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
