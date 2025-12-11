@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { Library } from './pages/Library';
 import { Projects, ProjectDetail } from './pages/Projects';
 import { Resume } from './pages/Resume';
+import { References } from './pages/References';
 import { HistoricalJams } from './pages/HistoricalJams';
 import { NotFound } from './pages/NotFound';
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/projects/:projectId" element={<ProjectDetail />} />
             <Route path="/historical-jams" element={<HistoricalJams />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/references" element={<References />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

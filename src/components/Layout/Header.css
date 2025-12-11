@@ -15,8 +15,8 @@
   align-items: center;
   justify-content: space-between;
   height: 3.5rem;
-  padding-top: var(--spacing-4);
-  padding-bottom: var(--spacing-4);
+  padding-top: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
 }
 
 .header__logo {
@@ -40,12 +40,12 @@
 .header__actions {
   display: flex;
   align-items: center;
-  gap: var(--spacing-4);
+  gap: var(--spacing-3);
 }
 
-.header__nav {
-  display: flex;
-  align-items: center;
+/* Desktop Navigation - Hidden on Mobile */
+.header__nav--desktop {
+  display: none;
 }
 
 .header__nav-list {
@@ -94,7 +94,138 @@
   background-color: var(--color-primary-main);
 }
 
-/* Tablet and up - Progressive Enhancement */
+/* Hamburger Button - Mobile Only */
+.header__hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: var(--spacing-2);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  gap: 5px;
+  transition: background-color var(--transition-base) ease;
+}
+
+.header__hamburger:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.header__hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base) ease;
+  transform-origin: center;
+}
+
+/* Hamburger Animation */
+.header__hamburger--open .header__hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Overlay */
+.header__overlay {
+  position: fixed;
+  inset: 0;
+  top: 3.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base) ease, visibility var(--transition-base) ease;
+  z-index: 1010;
+}
+
+.header__overlay--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Navigation */
+.header__mobile-nav {
+  position: fixed;
+  top: 3.5rem;
+  right: 0;
+  width: 280px;
+  max-width: 85vw;
+  height: calc(100vh - 3.5rem);
+  background-color: var(--color-bg-primary);
+  border-left: 1px solid var(--color-border-primary);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1015;
+  overflow-y: auto;
+  padding: var(--spacing-4);
+}
+
+.header__mobile-nav--open {
+  transform: translateX(0);
+}
+
+.header__mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.header__mobile-nav-item {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.header__mobile-nav--open .header__mobile-nav-item {
+  animation: slideInRight var(--transition-base) ease forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.header__mobile-nav-link {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-4);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base) ease;
+}
+
+.header__mobile-nav-link:hover {
+  color: var(--color-primary-main);
+  background-color: var(--color-bg-tertiary);
+}
+
+.header__mobile-nav-link--active {
+  color: var(--color-primary-main);
+  background-color: var(--color-bg-tertiary);
+  font-weight: 600;
+}
+
+/* Tablet and up - Show Desktop Nav, Hide Hamburger */
 @media (min-width: 768px) {
   .header__container {
     height: 3.75rem;
@@ -104,13 +235,27 @@
     font-size: 1.125rem;
   }
 
+  .header__nav--desktop {
+    display: flex;
+    align-items: center;
+  }
+
   .header__nav-list {
     gap: var(--spacing-1);
   }
 
   .header__nav-link {
     padding: var(--spacing-2) var(--spacing-3);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+  }
+
+  .header__hamburger {
+    display: none;
+  }
+
+  .header__overlay,
+  .header__mobile-nav {
+    display: none;
   }
 }
 
@@ -130,7 +275,23 @@
 
   .header__nav-link {
     padding: var(--spacing-2) var(--spacing-4);
+    font-size: 0.9375rem;
   }
 }
 
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .header__hamburger-line,
+  .header__overlay,
+  .header__mobile-nav,
+  .header__mobile-nav-item {
+    transition: none;
+    animation: none;
+  }
+  
+  .header__mobile-nav-item {
+    opacity: 1;
+    transform: none;
+  }
+}
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { LogoMarquee } from '../../components/LogoMarquee';
-import { AiChat } from '../../components/AiChat';
+// import { AiChat } from '../../components/AiChat';
 import benYoungImg from '../../assets/benyoung.png';
 import marleysImg from '../../assets/marleys.png';
 import jiffylubeImg from '../../assets/jiffylube.png';
@@ -81,6 +81,8 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* AI Chat Section - Commented out for now */}
+      {/*
       <section className="home__chat">
         <div className="container">
           <h2 className="home__section-title">Chat with my AI twin!</h2>
@@ -92,6 +94,7 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      */}
 
       <section className="home__about">
         <div className="container">
@@ -164,4 +167,3 @@ export const Home: React.FC = () => {
     </div>
   );
 };
-
