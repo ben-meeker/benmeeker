@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
@@ -17,9 +17,48 @@ import servicenowImg from '../../assets/servicenow.png';
 import allamericangymnasticsImg from '../../assets/allamericangymnastics.png';
 import wendysImg from '../../assets/wendys.png';
 import upsImg from '../../assets/ups.png';
+import wifeAndDogImg from '../../assets/wifeanddog.jpg';
+import houseImg from '../../assets/house.jpeg';
+import peopleImg from '../../assets/people.jpeg';
 import './Home.css';
 
 export const Home: React.FC = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const totalSlides = 3;
+
+  const scrollToSlide = (index: number) => {
+    if (carouselRef.current) {
+      const slideWidth = carouselRef.current.offsetWidth;
+      carouselRef.current.scrollTo({ left: slideWidth * index, behavior: 'smooth' });
+    }
+  };
+
+  const goToPrev = () => {
+    const newIndex = activeSlide === 0 ? totalSlides - 1 : activeSlide - 1;
+    scrollToSlide(newIndex);
+  };
+
+  const goToNext = () => {
+    const newIndex = activeSlide === totalSlides - 1 ? 0 : activeSlide + 1;
+    scrollToSlide(newIndex);
+  };
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleScroll = () => {
+      const slideWidth = carousel.offsetWidth;
+      const newIndex = Math.round(carousel.scrollLeft / slideWidth);
+      setActiveSlide(newIndex);
+    };
+
+    carousel.addEventListener('scroll', handleScroll);
+    return () => carousel.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="home">
       <section className="home__hero">
@@ -32,7 +71,7 @@ export const Home: React.FC = () => {
               IT Operations · Software Development · Platform Engineering
             </p>
             <p className="home__description">
-              Welcome to my website! I love building innovative, scalable solutions to any and every problem! I am also passionate about technology and leadership, and building teams that elevate businesses.
+              Welcome to my website! Take a look around and get to know me a little better!
             </p>
             
             <div className="home__cta">
@@ -98,28 +137,102 @@ export const Home: React.FC = () => {
 
       <section className="home__about">
         <div className="container">
-          <h2 className="home__section-title">About Me</h2>
-          <div className="home__cards">
-            <Card variant="elevated" padding="lg">
-              <h3 className="home__card-title">💻 Builder</h3>
-              <p className="home__card-text">
-                I love bringing ideas to life, and coming up with creative and innovative solutions! The satisfaction that comes from building something that makes a real impact a high that I constantly chase!
-              </p>
-            </Card>
+          <h2 className="home__section-title">A Little About Me</h2>
+          <div className="home__carousel-wrapper">
+            {/* Arrow buttons - desktop only */}
+            <button 
+              className="home__carousel-arrow home__carousel-arrow--prev" 
+              onClick={goToPrev}
+              aria-label="Previous slide"
+            >
+              ‹
+            </button>
+            <button 
+              className="home__carousel-arrow home__carousel-arrow--next" 
+              onClick={goToNext}
+              aria-label="Next slide"
+            >
+              ›
+            </button>
 
-            <Card variant="elevated" padding="lg">
-              <h3 className="home__card-title">🚀 Doer</h3>
-              <p className="home__card-text">
-                I'm not limited to my technical skills, and I'm able to learn new products and processes extremely quickly! Whatever needs to get done, it will get handled!
-              </p>
-            </Card>
+            <div className="home__carousel" ref={carouselRef}>
+              {/* Card 1: Family */}
+              <div className="home__carousel-slide">
+                <Card variant="elevated" padding="lg" className="home__about-card">
+                  <img 
+                    src={wifeAndDogImg} 
+                    alt="My wife and dog" 
+                    className="home__about-photo"
+                  />
+                  <div className="home__about-text">
+                    <p>
+                      I love my wife Emily and our dog Rex. They keep me happy and always remind me of what really matters in life
+                      <br/>
+                      <br/>
+                      Honorable mention: My motorcycle Selina
+                    </p>
+                  </div>
+                </Card>
+              </div>
 
-            <Card variant="elevated" padding="lg">
-              <h3 className="home__card-title">📚 Learner</h3>
-              <p className="home__card-text">
-                Much to my own dismay, I am unable to shake my interest in the world and all of it's amazing opportunities! I am literally interested in everything. Ask my wife!
-              </p>
-            </Card>
+              {/* Card 2: Building */}
+              <div className="home__carousel-slide">
+                <Card variant="elevated" padding="lg" className="home__about-card">
+                  <img 
+                    src={houseImg} 
+                    alt="Building projects" 
+                    className="home__about-photo"
+                  />
+                  <div className="home__about-text">
+                    <p>
+                      I'm passionate about <Link to="/projects">building things</Link>. Literally anything, as long as I get to help create it
+                      <br/>
+                      <br/>
+                      Ft. my house after insurance said they didn't like the siding
+                    </p>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Card 3: People */}
+              <div className="home__carousel-slide">
+                <Card variant="elevated" padding="lg" className="home__about-card">
+                  <img 
+                    src={peopleImg} 
+                    alt="Connecting with people" 
+                    className="home__about-photo"
+                  />
+                  <div className="home__about-text">
+                    <p>
+                      I thrive on <Link to="/references">connecting with others</Link>—meeting new people, 
+                      learning from their experiences, and finding ways to help and serve
+                      <br/>
+                      <br/>
+                      Here's the founding team of <strong>this is good.</strong> ask me about it!
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </div>
+            
+            {/* Carousel Indicators */}
+            <div className="home__carousel-dots">
+              <button 
+                className={`home__carousel-dot ${activeSlide === 0 ? 'active' : ''}`} 
+                aria-label="Slide 1" 
+                onClick={() => scrollToSlide(0)}
+              />
+              <button 
+                className={`home__carousel-dot ${activeSlide === 1 ? 'active' : ''}`} 
+                aria-label="Slide 2" 
+                onClick={() => scrollToSlide(1)}
+              />
+              <button 
+                className={`home__carousel-dot ${activeSlide === 2 ? 'active' : ''}`} 
+                aria-label="Slide 3" 
+                onClick={() => scrollToSlide(2)}
+              />
+            </div>
           </div>
         </div>
       </section>

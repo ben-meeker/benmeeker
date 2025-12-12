@@ -103,8 +103,7 @@
 /* About Section - Mobile Base */
 .home__about {
   padding: var(--spacing-8) 0;
-  position: relative;
-  overflow: hidden;
+  background-color: var(--color-bg-secondary);
 }
 
 .home__section-title {
@@ -113,6 +112,143 @@
   margin-bottom: var(--spacing-8);
 }
 
+/* Carousel */
+.home__carousel-wrapper {
+  position: relative;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.home__carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.home__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.home__carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+/* Carousel Dots */
+.home__carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-4);
+}
+
+.home__carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-border-secondary);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-base) ease;
+}
+
+.home__carousel-dot:hover,
+.home__carousel-dot.active {
+  background-color: var(--color-primary-main);
+  transform: scale(1.2);
+}
+
+/* Carousel Arrows - hidden on mobile */
+.home__carousel-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base) ease;
+  z-index: 10;
+  line-height: 1;
+}
+
+.home__carousel-arrow:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary-main);
+  box-shadow: var(--shadow-lg);
+}
+
+.home__carousel-arrow--prev {
+  left: -60px;
+}
+
+.home__carousel-arrow--next {
+  right: -60px;
+}
+
+/* About Card */
+.home__about-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  align-items: center;
+  height: 100%;
+}
+
+.home__about-photo {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.home__about-text {
+  text-align: center;
+}
+
+.home__about-text h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-2);
+  color: var(--color-text-primary);
+}
+
+.home__about-text p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.home__about-text a {
+  color: var(--color-primary-main);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition-base) ease;
+}
+
+.home__about-text a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* Legacy card styles - keep for other sections */
 .home__cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -247,6 +383,39 @@
   .home__cards {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
+
+  /* Show carousel arrows on tablet+ */
+  .home__carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* About card - horizontal on tablet */
+  .home__about-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    gap: var(--spacing-8);
+  }
+
+  .home__about-photo {
+    width: 240px;
+    max-width: 240px;
+    flex-shrink: 0;
+  }
+
+  .home__about-text {
+    text-align: left;
+  }
+
+  .home__about-text h3 {
+    font-size: 1.375rem;
+  }
+
+  .home__about-text p {
+    font-size: 1rem;
+  }
   
   /* Larger on tablet+ */
   .home__section-decoration {
@@ -291,6 +460,16 @@
 
   .home__section-title {
     font-size: 1.75rem;
+  }
+
+  /* About section - desktop sizing */
+  .home__about-photo {
+    width: 280px;
+    max-width: 280px;
+  }
+
+  .home__about-text p {
+    font-size: 0.9375rem;
   }
   
   /* Full size on desktop */
