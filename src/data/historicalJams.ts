@@ -819,5 +819,21 @@ export const historicalJams: MonthlyPlaylist[] = [
       { name: "I'm Sorry", artist: 'Peach Tree Rascals', album: "I'm Sorry" },
     ],
   },
+  {
+    month: 'December',
+    year: 2025,
+    songs: [
+      { name: 'Time', artist: 'In Color', album: 'Time' },
+      { name: 'How To Live', artist: 'Del Water Gap', album: 'Chasing The Chimera' },
+      { name: 'contact high', artist: 'Aidan Bissett', album: 'shut up and love me' },
+      { name: 'Mixtape For Christmas', artist: 'Hey Monday', album: 'The Christmas EP' },
+      { name: "who's your boyfriend", artist: 'Royel Otis', album: 'hickey' },
+      { name: 'Christmas Lights', artist: 'Yellowcard', album: 'Punk Goes Christmas' },
+      { name: 'The Emptiness Machine', artist: 'Linkin Park', album: 'From Zero' },
+      { name: 'Hey Stupid, I Love You', artist: 'JP Saxe', album: 'Hey Stupid, I Love You' },
+      { name: 'cut my hair', artist: 'MICO', album: 'cut my hair' },
+      { name: 'GROWING UP IS ____', artist: 'Ruel', album: '4TH WALL' },
+    ],
+  },
 ];
 
