@@ -835,5 +835,27 @@ export const historicalJams: MonthlyPlaylist[] = [
       { name: 'GROWING UP IS ____', artist: 'Ruel', album: '4TH WALL' },
     ],
   },
+  {
+    month: 'January',
+    year: 2026,
+    songs: [
+      { name: 'Hungry Like the Wolf - 2009 Remaster', artist: 'Duran Duran', album: "Rio (Collector's Edition)" },
+      { name: 'Charleston Girl', artist: 'West 22nd', album: 'All The Way Home' },
+      { name: 'Is There Anyone?', artist: 'In Color', album: 'Is There Anyone?' },
+      { name: 'Easy Love', artist: 'West 22nd', album: 'Nowhere To Be' },
+      { name: 'she got a thing about her', artist: 'Thomas Day', album: 'she got a thing about her' },
+      { name: 'Laugh It Off', artist: 'West 22nd', album: 'Nowhere To Be' },
+      { name: 'Tan Lines', artist: 'Kevin Kraemer', album: 'Tan Lines' },
+      { name: 'Maple Syrup', artist: 'The Backseat Lovers', album: 'When We Were Friends' },
+      { name: 'Delete Ya', artist: 'Djo', album: 'The Crux' },
+      { name: 'Brazil', artist: 'Declan McKenna', album: 'What Do You Think About the Car?' },
+      { name: 'Free Myself', artist: 'Harvey Street', album: 'Free Myself' },
+      { name: 'life goes by', artist: 'almost monday', album: 'DIVE' },
+      { name: "can't slow down", artist: 'almost monday', album: 'DIVE' },
+      { name: 'ricochet', artist: 'Aidan Bissett', album: 'shut up and love me' },
+      { name: 'Sideways', artist: 'Balu Brigada', album: 'Portal' },
+      { name: 'PHONE!', artist: 'Never Ending Fall', album: 'PHONE!' },
+    ],
+  },
 ];
 
