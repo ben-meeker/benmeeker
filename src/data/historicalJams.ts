@@ -864,7 +864,7 @@ export const historicalJams: MonthlyPlaylist[] = [
       { name: "i'll still feel for you", artist: 'PRETTY BLEAK', album: "i'll still feel for you" },
       { name: 'So Cold', artist: 'Balu Brigada', album: 'Portal' },
       { name: 'misses', artist: 'Dominic Fike', album: '14 minutes' },
-      { name: 'Anxious', artist: 'The Wldlfe', album: 'Repaint My Mind, 20/20' },
+      { name: 'Anxious', artist: 'The Wldlfe', album: 'Repaint My Mind, 2021' },
       { name: 'La Vie en Rose', artist: 'The Catalina', album: 'La Vie en Rose' },
       { name: 'American Disco', artist: 'Never Ending Fall', album: 'American Disco' },
     ],
