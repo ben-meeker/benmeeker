@@ -4,6 +4,7 @@
 import mancaveDashboard from '../../assets/projects/themancavedashboard/dashboard.png';
 import dormyWebpage from '../../assets/projects/dormy/webpagehome.png';
 import skyjoOnline from '../../assets/projects/skyjoonline/home.png';
+import gotraegerMain from '../../assets/projects/go-traeger/main.png'
 
 export interface Project {
   id: string;
@@ -43,5 +44,14 @@ export const projectsData: Record<string, Project> = {
     github: 'https://github.com/bemeek-io/skyjo-online',
     website: 'https://skyjo.bemeek.io',
     previewImage: skyjoOnline,
+  },
+  'go-traeger': {
+    id: 'go-traeger',
+    title: 'Traeger Go SDK',
+    description:
+      'A Go SDK for interacting with Traeger grills programmatically, allowing developers to integrate grill control and monitoring into their own applications.',
+    tags: ['GoLang', 'Traeger', 'API', 'SDK'],
+    github: 'https://github.com/bemeek-io/go-traeger',
+    previewImage: gotraegerMain,
   },
 };

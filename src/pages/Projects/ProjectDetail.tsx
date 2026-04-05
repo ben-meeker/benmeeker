@@ -17,6 +17,9 @@ import skyjoOnlineLobby from '../../assets/projects/skyjoonline/lobby.png';
 import skyjoOnlineAvatarSelect from '../../assets/projects/skyjoonline/avatarselection.png';
 import skyjoOnlineGameplay from '../../assets/projects/skyjoonline/gameplay.png';
 
+import gotraegerMain from '../../assets/projects/go-traeger/main.png'
+import gotraegerCook from '../../assets/projects/go-traeger/grafana.png'
+
 // Extended project details for showcase pages
 const projectDetails: Record<string, {
   longDescription: string;
@@ -74,7 +77,7 @@ Eventually, we pivoted to focus more on the tenant experience, specifically the 
       { category: 'Web', items: ['React', 'TypeScript'] },
       { category: 'Backend', items: ['Go', 'Docker', 'Kubernetes'] },
       { category: 'Mobile', items: ['Swift', 'iOS'] },
-      { category: 'Integrations', items: ['OpenAI', 'Stripe', 'AdobeSign', 'Plaid'] },
+      { category: 'Integrations', items: ['OpenAI', 'Stripe', 'AdobeSign'] },
     ],
     images: [
       { src: dormyWebpage, alt: 'Dormy Web Platform', caption: 'Landlord dashboard and property management' },
@@ -107,6 +110,20 @@ Eventually, we pivoted to focus more on the tenant experience, specifically the 
     ],
     highlights: [
       'Legitimately fun'
+    ],
+  },
+  'go-traeger': {
+    longDescription: `Go Traeger is a GoLang SDK for interacting with Traeger grills programmatically, allowing developers to integrate grill control and monitoring into their own applications. I built this by reverse-engineering the Traeger API by using Charles Proxy and the Traeger mobile app on my phone. Shoutout to the development team at Traeger who found me after I built this and invited me over for lunch and a tour of their office! P.S. Thanks for the pellets, I was almost out.`,
+    features: [
+      'Send controls to your grill like changing the temperature, enabling supersmoke, or shutting off',
+      'Get basic grill info or subscribe to the MQTT channel for real-time updates during your cook!',
+    ],
+    techStack: [
+      { category: 'Language', items: ['GoLang'] },
+    ],
+    images: [
+      { src: gotraegerMain, alt: 'Go Traeger SDK', caption: 'Main screenshot showing usage of the Go Traeger SDK' },
+      { src: gotraegerCook, alt: 'Grafana Cook', caption: 'One of my Grafana dashboards using the Go SDK to track my cooks' },
     ],
   },
 };
