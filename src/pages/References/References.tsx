@@ -41,7 +41,7 @@ const professionalReferences: Reference[] = [
     company: 'Aptive Environmental',
     relationship: 'Leader',
     initials: 'BB',
-    accentColor: 'var(--color-secondary-main)',
+    accentColor: 'var(--color-info)',
   },
   {
     id: 'prof-4',
@@ -50,7 +50,7 @@ const professionalReferences: Reference[] = [
     company: 'Aptive Environmental',
     relationship: 'Peer / Colleague',
     initials: 'BB',
-    accentColor: 'var(--color-secondary-main)',
+    accentColor: 'var(--color-primary-main)',
   },
 ];
 
@@ -89,7 +89,7 @@ const personalReferences: Reference[] = [
     company: 'Clearstone Associates',
     relationship: 'Long-term Friend',
     initials: 'ZE',
-    accentColor: 'var(--color-info)',
+    accentColor: 'var(--color-primary-main)',
   },
   {
     id: 'pers-5',
@@ -98,7 +98,7 @@ const personalReferences: Reference[] = [
     company: 'Utah Home Electric',
     relationship: 'Long-term Friend',
     initials: 'JF',
-    accentColor: 'var(--color-info)',
+    accentColor: 'var(--color-secondary-main)',
   },
 ];
 

@@ -162,7 +162,7 @@ export const Library: React.FC = () => {
           <header className="library__header">
             <h1 className="library__title">My Library</h1>
             <p className="library__description">
-              A collection of books that have impacted me, and content that I have created.
+              A collection of books that have impacted me. The ones with a star are my absolute favorites.
             </p>
           </header>
         </div>
@@ -171,10 +171,6 @@ export const Library: React.FC = () => {
       {/* Book Recommendations Section */}
       <section className="library__section library__section--books">
         <div className="container">
-          <h2 className="library__section-title">Bookshelf</h2>
-          <p className="library__section-description">
-            Books that have had a significant impact on my life and career. I highly recommend all of these
-          </p>
           
           <div className="library__books-grid">
             {books.map((book) => (
