@@ -33,7 +33,25 @@ const professionalReferences: Reference[] = [
     relationship: 'Peer / Colleague',
     initials: 'JF',
     accentColor: 'var(--color-secondary-main)',
-  }
+  },
+  {
+    id: 'prof-3',
+    name: 'Ben Blaker',
+    title: 'Head of Technology',
+    company: 'Aptive Environmental',
+    relationship: 'Leader',
+    initials: 'BB',
+    accentColor: 'var(--color-secondary-main)',
+  },
+  {
+    id: 'prof-4',
+    name: 'Brian Brinton',
+    title: 'Manager, Service Desk',
+    company: 'Aptive Environmental',
+    relationship: 'Peer / Colleague',
+    initials: 'BB',
+    accentColor: 'var(--color-secondary-main)',
+  },
 ];
 
 const personalReferences: Reference[] = [
@@ -62,6 +80,24 @@ const personalReferences: Reference[] = [
     company: 'Mount Mahogany Elementary',
     relationship: 'Wife',
     initials: 'EM',
+    accentColor: 'var(--color-info)',
+  },
+  {
+    id: 'pers-4',
+    name: 'Zach Edwards',
+    title: 'Founder / Investor / Advisor',
+    company: 'Clearstone Associates',
+    relationship: 'Long-term Friend',
+    initials: 'ZE',
+    accentColor: 'var(--color-info)',
+  },
+  {
+    id: 'pers-5',
+    name: 'Joe Fishback',
+    title: 'Electrician',
+    company: 'Utah Home Electric',
+    relationship: 'Long-term Friend',
+    initials: 'JF',
     accentColor: 'var(--color-info)',
   },
 ];
