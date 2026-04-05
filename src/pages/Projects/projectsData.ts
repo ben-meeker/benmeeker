@@ -38,7 +38,7 @@ export const projectsData: Record<string, Project> = {
     id: 'skyjo-online',
     title: 'Skyjo Online',
     description:
-      'An online version of the popular card game Skyjo, allowing players to compete against friends or random opponents in real-time! Play it at https://skyjo.bemeek.io!',
+      'An online version of the popular card game Skyjo, allowing players to compete against friends or random opponents in real-time!',
     tags: ['React', 'TypeScript', 'Node.js', 'Cloudflare'],
     github: 'https://github.com/bemeek-io/skyjo-online',
     website: 'https://skyjo.bemeek.io',

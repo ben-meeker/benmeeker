@@ -9,7 +9,7 @@
   font-weight: 600;
   text-align: center;
   white-space: nowrap;
-  border: none;
+  border: 2px solid transparent;
   border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all var(--transition-base) ease;
