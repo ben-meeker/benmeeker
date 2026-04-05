@@ -20,8 +20,8 @@ const projectDetails: Record<string, {
   images: { src: string; alt: string; caption: string }[];
   highlights?: string[];
 }> = {
-  'mancave-dashboard': {
-    longDescription: `The Mancave Dashboard is an open-source, customizable smart home dashboard designed for displaying on a dedicated screen in your home. It has a great set of widgets for integrating tech with your home life, and was built modularly so that additional widgets are easily added.
+  'mashboard': {
+    longDescription: `Mashboard is an open-source, customizable smart home dashboard designed for displaying on a dedicated screen in your home. It has a great set of widgets for integrating tech with your home life, and was built modularly so that additional widgets are easily added.
 
 The dashboard consists of a React/TypeScript frontend, a Go backend API server, and Redis for caching. The entire stack runs in Docker containers for easy deployment on any system.`,
     features: [
@@ -38,13 +38,13 @@ The dashboard consists of a React/TypeScript frontend, a Go backend API server, 
       'Configuration via simple JSON file',
     ],
     techStack: [
-      { category: 'Frontend', items: ['React', 'TypeScript', 'Vite', 'CSS'] },
-      { category: 'Backend', items: ['Go', 'Chi Router', 'Redis'] },
-      { category: 'Infrastructure', items: ['Docker', 'Docker Compose', 'nginx'] },
+      { category: 'Frontend', items: ['React', 'TypeScript', 'Vite'] },
+      { category: 'Backend', items: ['Go', 'Redis'] },
+      { category: 'Infrastructure', items: ['Docker'] },
     ],
     images: [
-      { src: mancaveDashboard, alt: 'Mancave Dashboard Main View', caption: 'Main dashboard view with widgets' },
-      { src: mancaveDashboardEdit, alt: 'Mancave Dashboard Edit Mode', caption: 'Edit mode with drag-and-drop' },
+      { src: mancaveDashboard, alt: 'Mashboard Main View', caption: 'Main dashboard view with widgets' },
+      { src: mancaveDashboardEdit, alt: 'Mashboard Edit Mode', caption: 'Edit mode with drag-and-drop' },
       { src: mancaveSelectWidget, alt: 'Widget Selection', caption: 'Add new widgets' },
     ],
   },

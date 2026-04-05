@@ -16,13 +16,13 @@ export interface Project {
 
 // Add more projects here as needed
 export const projectsData: Record<string, Project> = {
-  'mancave-dashboard': {
-    id: 'mancave-dashboard',
-    title: 'The Mancave Dashboard',
+  'mashboard': {
+    id: 'mashboard',
+    title: 'Mashboard',
     description:
-      'A cool, customizable smart home dashboard built with React and Go. Displays all your important information in one place with a modular widget system. Perfect for wall-mounted displays, tablets, or any screen in your home.',
+      'A customizable smart home dashboard built with React and Go. Displays all your important information in one place with a modular widget system. Perfect for wall-mounted displays, tablets, or any screen in your home.',
     tags: ['TypeScript', 'Go', 'CSS', 'Docker', 'React'],
-    github: 'https://github.com/ben-meeker/themancavedashboard',
+    github: 'https://github.com/bemeek-io/mashboard',
     previewImage: mancaveDashboard,
   },
   'dormy': {
