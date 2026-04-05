@@ -12,6 +12,11 @@ import mancaveSelectWidget from '../../assets/projects/themancavedashboard/selec
 import dormyWebpage from '../../assets/projects/dormy/webpagehome.png';
 import dormyMobileApp from '../../assets/projects/dormy/mobileappmockup.png';
 
+import skyjoOnlineHome from '../../assets/projects/skyjoonline/home.png';
+import skyjoOnlineLobby from '../../assets/projects/skyjoonline/lobby.png';
+import skyjoOnlineAvatarSelect from '../../assets/projects/skyjoonline/avatarselection.png';
+import skyjoOnlineGameplay from '../../assets/projects/skyjoonline/gameplay.png';
+
 // Extended project details for showcase pages
 const projectDetails: Record<string, {
   longDescription: string;
@@ -79,6 +84,29 @@ Eventually, we pivoted to focus more on the tenant experience, specifically the 
       'Real paying customers during operation',
       'Published iOS app on the App Store',
       'AI-powered lease generation',
+    ],
+  },
+  'skyjo-online': {
+    longDescription: `Skyjo Online is a real-time multiplayer version of the card game that I made so that my wife and I could play with my in-laws who live in a different state! It has an interface almost like Kahoot, and allows you to create a room and have others join. There is also the option to host a display separately for a Jackbox-style experience!`,
+    features: [
+      'Websocket game state synchronization',
+      'Headless or host-based gameplay',
+      'Ability to kick inactive players',
+      'Emoji reactions shown to all players in lobby',
+      '8-bit style music generated with code',
+    ],
+    techStack: [
+      { category: 'Web', items: ['React', 'TypeScript', `Node.js`] },
+      { category: 'Hosting', items: ['Cloudflare', 'Incus', 'Docker'] },
+    ],
+    images: [
+      { src: skyjoOnlineHome, alt: 'Skyjo Online Home', caption: 'Home screen where players can create or join a game' },
+      { src: skyjoOnlineLobby, alt: 'Skyjo Online Lobby', caption: 'Game lobby where players wait to join a match' },
+      { src: skyjoOnlineAvatarSelect, alt: 'Skyjo Online Avatar Selection', caption: 'Players can select an avatar before the game begins' },
+      { src: skyjoOnlineGameplay, alt: 'Skyjo Online Gameplay', caption: 'Players can see the game state and take their turns in real-time' },
+    ],
+    highlights: [
+      'Legitimately fun'
     ],
   },
 };

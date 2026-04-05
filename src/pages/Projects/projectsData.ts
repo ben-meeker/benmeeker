@@ -3,6 +3,7 @@
 // Import preview images
 import mancaveDashboard from '../../assets/projects/themancavedashboard/dashboard.png';
 import dormyWebpage from '../../assets/projects/dormy/webpagehome.png';
+import skyjoOnline from '../../assets/projects/skyjoonline/home.png';
 
 export interface Project {
   id: string;
@@ -32,5 +33,15 @@ export const projectsData: Record<string, Project> = {
       'A property management and rental platform that modernized the rental process for landlords. Features AI-powered lease generation, digital signatures, maintenance management, rent collection, and tenant messaging. Later pivoted to a tenant-focused mobile app for property discovery.',
     tags: ['React', 'TypeScript', 'Go', 'Kubernetes', 'Swift'],
     previewImage: dormyWebpage,
+  },
+  'skyjo-online': {
+    id: 'skyjo-online',
+    title: 'Skyjo Online',
+    description:
+      'An online version of the popular card game Skyjo, allowing players to compete against friends or random opponents in real-time! Play it at https://skyjo.bemeek.io!',
+    tags: ['React', 'TypeScript', 'Node.js', 'Cloudflare'],
+    github: 'https://github.com/bemeek-io/skyjo-online',
+    website: 'https://skyjo.bemeek.io',
+    previewImage: skyjoOnline,
   },
 };
