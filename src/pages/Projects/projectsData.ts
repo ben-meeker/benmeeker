@@ -50,7 +50,7 @@ export const projectsData: Record<string, Project> = {
     title: 'Traeger Go SDK',
     description:
       'A Go SDK for interacting with Traeger grills programmatically, allowing developers to integrate grill control and monitoring into their own applications.',
-    tags: ['GoLang', 'Traeger', 'API', 'SDK'],
+    tags: ['GoLang', 'Reverse-Engineering', 'API', 'SDK'],
     github: 'https://github.com/bemeek-io/go-traeger',
     previewImage: gotraegerMain,
   },

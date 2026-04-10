@@ -122,7 +122,7 @@ Eventually, we pivoted to focus more on the tenant experience, specifically the 
       { category: 'Language', items: ['GoLang'] },
     ],
     images: [
-      { src: gotraegerMain, alt: 'Go Traeger SDK', caption: 'Main screenshot showing usage of the Go Traeger SDK' },
+      { src: gotraegerMain, alt: 'Go Traeger SDK', caption: 'Go Traeger SDK Readme' },
       { src: gotraegerCook, alt: 'Grafana Cook', caption: 'One of my Grafana dashboards using the Go SDK to track my cooks' },
     ],
   },
