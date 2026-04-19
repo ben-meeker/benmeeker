@@ -5,6 +5,7 @@ import mancaveDashboard from '../../assets/projects/themancavedashboard/dashboar
 import dormyWebpage from '../../assets/projects/dormy/webpagehome.png';
 import skyjoOnline from '../../assets/projects/skyjoonline/home.png';
 import gotraegerMain from '../../assets/projects/go-traeger/main.png'
+import keystoneIntegration from '../../assets/projects/keystoneintegration/home.png';
 
 export interface Project {
   id: string;
@@ -53,5 +54,14 @@ export const projectsData: Record<string, Project> = {
     tags: ['GoLang', 'Reverse-Engineering', 'API', 'SDK'],
     github: 'https://github.com/bemeek-io/go-traeger',
     previewImage: gotraegerMain,
+  },
+  'keystone-integration': {
+    id: 'keystone-integration',
+    title: 'Keystone Integration',
+    description:
+      'A website made for my company Keystone Integration, where we installed customer-owned smart home and security systems.',
+    tags: ['React', 'TypeScript', 'CSS'],
+    website: 'https://keystoneintegration.us',
+    previewImage: keystoneIntegration,
   },
 };

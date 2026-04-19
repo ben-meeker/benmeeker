@@ -20,6 +20,12 @@ import skyjoOnlineGameplay from '../../assets/projects/skyjoonline/gameplay.png'
 import gotraegerMain from '../../assets/projects/go-traeger/main.png'
 import gotraegerCook from '../../assets/projects/go-traeger/grafana.png'
 
+import keystoneIntegrationHome from '../../assets/projects/keystoneintegration/home.png';
+import keystoneIntegrationScope from '../../assets/projects/keystoneintegration/scope.png';
+import keystoneIntegrationAbout from '../../assets/projects/keystoneintegration/about.png';
+import keystoneIntegrationLocality from '../../assets/projects/keystoneintegration/locality.png';
+import keystoneIntegrationBlog from '../../assets/projects/keystoneintegration/blog.png';
+
 // Extended project details for showcase pages
 const projectDetails: Record<string, {
   longDescription: string;
@@ -124,6 +130,22 @@ Eventually, we pivoted to focus more on the tenant experience, specifically the 
     images: [
       { src: gotraegerMain, alt: 'Go Traeger SDK', caption: 'Go Traeger SDK Readme' },
       { src: gotraegerCook, alt: 'Grafana Cook', caption: 'One of my Grafana dashboards using the Go SDK to track my cooks' },
+    ],
+  },
+  'keystone-integration': {
+    longDescription: `The Keystone Integration website included a landing page describing the services, company background, and experience. In addition to this, it included microsites for all the serviceable areas at paths like /provo, /west-valley-city, etc. Each microsite had localized content back-linked to the main site for SEO. I also maintained a blog on this site, also for SEO purposes, to bring customers looking for information or services in our niche to the site. The site was built with React and TypeScript, and deployed on Cloudflare.`,
+    features: [
+      'Custom smart home and security system integrations',
+    ],
+    techStack: [
+      { category: 'Language', items: ['React', 'TypeScript', 'CSS'] },
+    ],
+    images: [
+      { src: keystoneIntegrationHome, alt: 'Keystone Integration', caption: 'Keystone Integration Home' },
+      { src: keystoneIntegrationScope, alt: 'Keystone Integration', caption: 'Keystone Integration Scope' },
+      { src: keystoneIntegrationAbout, alt: 'Keystone Integration', caption: 'Keystone Integration About' },
+      { src: keystoneIntegrationLocality, alt: 'Keystone Integration', caption: 'Keystone Integration Locality' },
+      { src: keystoneIntegrationBlog, alt: 'Keystone Integration', caption: 'Keystone Integration Blog' },
     ],
   },
 };

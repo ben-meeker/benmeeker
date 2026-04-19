@@ -17,6 +17,7 @@ import servicenowImg from '../../assets/servicenow.png';
 import allamericangymnasticsImg from '../../assets/allamericangymnastics.png';
 import wendysImg from '../../assets/wendys.png';
 import upsImg from '../../assets/ups.png';
+import keystoneIntegrationImg from '../../assets/keystoneintegration.svg';
 import wifeAndDogImg from '../../assets/wifeanddog.jpg';
 import houseImg from '../../assets/house.jpeg';
 import peopleImg from '../../assets/people.jpeg';
@@ -115,6 +116,7 @@ export const Home: React.FC = () => {
               { src: dormyImg, alt: "Dormy" },
               { src: utahhomeelectricImg, alt: "Utah Home Electric" },
               { src: servicenowImg, alt: "ServiceNow" },
+              { src: keystoneIntegrationImg, alt: "Keystone Integration" },
             ]}
           />
         </div>
